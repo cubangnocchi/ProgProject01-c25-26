@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec17d18b-56dc-429e-bc53-98eaa8200626" name="Changes" comment="Making a class for events and organizing it's methods">
-      <change afterPath="$PROJECT_DIR$/logic/event_class/date.py" afterDir="false" />
-    </list>
+    <list default="true" id="ec17d18b-56dc-429e-bc53-98eaa8200626" name="Changes" comment="Reorganize all this..." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,13 +92,22 @@
       <option name="project" value="LOCAL" />
       <updated>1759955383677</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Reorganize all this...">
+      <option name="closed" value="true" />
+      <created>1759956108595</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1759956108595</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project Created" />
     <MESSAGE value="Project Structure" />
     <MESSAGE value="Making a class for events and organizing it's methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Making a class for events and organizing it's methods" />
+    <MESSAGE value="Reorganize all this..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Reorganize all this..." />
   </component>
 </project>
