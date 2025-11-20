@@ -26,11 +26,13 @@ class interval:
         dates_one = interval_one.get_dates()
         dates_two = interval_two.get_dates()
         
-        #if the end of one is before the start of an other, the  intervals are not overlaping
-        if(dates_one[1] <= dates_two[0] or dates_two[1] <= dates_one[0]):
-            return False
+        #if the begining of a period is inside the other period, then it's overlaping
+        if(dates_one[0] >= dates_two[0] and dates_one[0] <= dates_two[1]):
+            return True
+        if(dates_two[0] >= dates_one[0] and dates_two[0] <= dates_one[1]):
+            return True
         
-        return True
+        return False
     
     
     def is_it_inside(interval_one, interval_two):
