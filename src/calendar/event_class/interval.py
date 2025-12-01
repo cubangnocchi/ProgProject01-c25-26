@@ -35,14 +35,15 @@ class interval:
         
         return False
     
-    
+    @staticmethod
     def is_it_inside(interval_one, interval_two):
         #gets dates from intervals
         dates_one = interval_one.get_dates()
         dates_two = interval_two.get_dates()
 
         #........ 
-
+    
+    @staticmethod
     def distance(interval_first, interval_second):
 
         first_end_date = interval_first.get_dates[1]
@@ -50,7 +51,7 @@ class interval:
 
         return second_start_date - first_end_date 
 
-
+    @staticmethod
     def available_period(interval_first, interval_second):
         
         return interval_first.get_dates[1], interval_second.get_dates
