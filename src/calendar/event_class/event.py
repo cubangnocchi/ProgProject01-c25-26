@@ -1,6 +1,8 @@
 import datetime
 from src.calendar.event_class.interval import interval
 
+#! + + + + + + add item creation as a posible parameter + + + + +
+
 class Event:
 
     # Constructors
