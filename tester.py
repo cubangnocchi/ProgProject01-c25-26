@@ -1,4 +1,4 @@
-from resources.calendar.event_class.interval import interval
+from src.calendar.event_class.interval import interval
 import datetime
 
 

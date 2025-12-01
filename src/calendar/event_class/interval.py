@@ -40,5 +40,7 @@ class interval:
         dates_one = interval_one.get_dates()
         dates_two = interval_two.get_dates()
 
+        #........ 
+
 
         
