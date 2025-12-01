@@ -1,14 +1,14 @@
 import datetime
+from src.calendar.event_class.interval import interval
 
 class Event:
 
     # Constructors
 
-    def __init__(self, event_name, starting_date, ending_date, objects):
+    def __init__(self, event_name, starting_date, ending_date, objects_keys):
         self.event_name = event_name
-        self.starting_date = starting_date
-        self.ending_date = ending_date
-        self.objects = objects
+        self.dates = interval(starting_date, ending_date)
+        self.objects_keys = objects_keys
 
     # Parameter validation methods
     '''
@@ -29,6 +29,15 @@ class Event:
     '''
     These methods is made for making possible operations between parameters
     '''
+
+    def get_interval(self):
+        return self.dates
+    
+    def get_starting_date(self):
+        return self.dates.start_date
+    
+    def get_ending_date(self):
+        return self.dates.end_date
 
     # Parameter Construction Methods
     '''

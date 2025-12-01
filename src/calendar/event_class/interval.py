@@ -14,6 +14,7 @@ class interval:
 
     # - - - - - - - - Non Stacic Methods - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
+    # not done
     def is_it_contained(self, inner_interval):
         out_dates = self.get_dates()
         inner_dates = inner_interval.get_dates()
@@ -41,6 +42,19 @@ class interval:
         dates_two = interval_two.get_dates()
 
         #........ 
+
+    def distance(interval_first, interval_second):
+
+        first_end_date = interval_first.get_dates[1]
+        second_start_date = interval_first.get_dates[0]
+
+        return second_start_date - first_end_date 
+
+
+    def available_period(interval_first, interval_second):
+        
+        return interval_first.get_dates[1], interval_second.get_dates
+        
 
 
         
