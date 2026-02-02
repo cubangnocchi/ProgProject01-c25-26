@@ -1,4 +1,5 @@
 from src.calendar.event_class.interval import interval
+from src.calendar.event_class.event import Event
 import datetime
 
 
@@ -17,4 +18,17 @@ def test_intervals():
     
     print(interval.is_it_overlaping(a, b))
     print(interval.is_it_overlaping(b, a))
+
+def test_event():
+    print("testing events")
+
     
+    f1 = datetime.datetime(2200, 10, 10)
+    f2 = datetime.datetime(2250, 10, 10)
+
+    evento01 = Event("patata", f1, f2, "01")
+
+    print(evento01.get_ending_date())
+
+    
+       

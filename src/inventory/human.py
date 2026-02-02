@@ -12,6 +12,5 @@ class Human:
     def get_type(self):
         return self.type
 
-    #just do it...
-    def get_age(self):
-        return 100
+    def get_age(self, actualdate):
+        return self.day_born - actualdate

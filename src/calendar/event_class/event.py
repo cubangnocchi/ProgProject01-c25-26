@@ -1,16 +1,17 @@
 import datetime
 from src.calendar.event_class.interval import interval
 
-#! + + + + + + add item creation as a posible parameter + + + + +
+#! + + + + + + add item creation as a posible parameter + + + + + 
 
 class Event:
 
     # Constructors
 
-    def __init__(self, event_name, starting_date, ending_date, objects_keys):
+    def __init__(self, event_name, starting_date, ending_date, item_keys, item_amount):
         self.event_name = event_name
         self.dates = interval(starting_date, ending_date)
-        self.objects_keys = objects_keys
+        self.item_keys = item_keys
+        self.item_amount = item_amount
 
     # Parameter validation methods
     '''
@@ -40,6 +41,12 @@ class Event:
     
     def get_ending_date(self):
         return self.dates.end_date
+    
+    def get_item_keys(self):
+        return self.item_keys
+    
+    def get_item_amount(self):
+        return self.item_amount
 
     # Parameter Construction Methods
     '''

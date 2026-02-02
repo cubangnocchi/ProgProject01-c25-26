@@ -1,9 +1,25 @@
 
-
+class Inventory:
+    def __init__(self, items, people):
+        self.items = items
+        self.people = people
+    
+    def get_items(self):
+        return self.items
+    
+    def get_people(self):
+        return self.people
+    
+    
+        
 
 
 '''
 ++++++++++++++++++++++++++++++++++++++++++++
+
+//overengeenering and overcomplicated and overengineered
+//aaaaaaaaaaa
+//
 
 make a "calendar" with how much available items we have in each period
 
@@ -21,6 +37,5 @@ today - next event start, an other level start, the end of the first one, the en
   - brake
   - take the minimun available value of each item
   - 
-
 
 '''

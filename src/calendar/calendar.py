@@ -44,3 +44,4 @@ class Calendar:
             
             self.places.insert(new_event_pos, new_event)
     
+#! create methods for format change 
