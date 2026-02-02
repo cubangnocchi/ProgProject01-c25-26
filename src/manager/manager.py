@@ -1,11 +1,11 @@
-from src.calendar.calendar import Calendar
-from src.calendar.event_class.event import Event
-from src.calendar.event_class.interval import interval
-from src.inventory.inventory import Inventory
-from src.inventory.human import Human
-from src.inventory.item import Item
-from src.manager import restrictions
-from src.visual_interface import menues
+from ..calendar.calendar import Calendar
+from ..calendar.event_class.event import Event
+from ..calendar.event_class.interval import interval
+from ..inventory.inventory import Inventory
+from ..inventory.human import Human
+from ..inventory.item import Item
+from . import restrictions
+from ..visual_interface import menues
  
 
 def run():
@@ -13,6 +13,6 @@ def run():
     # main_inventory = something that loads the inventory
     #! remember to put an automatic empty calendar and inventory if there is none
 
-    while True:
-        menues.main_menue
+    # while True:
+    menues.main_menue()
         

@@ -1,8 +1,8 @@
 def main_menue():
 
     options = ["1"] #add option keys here
-
-    while True:
+    
+    while open:
        print("---[Main Menue]---")
        print("------------------")
        print("press a [key] + [Enter↲] to select one of the following options:")
@@ -14,6 +14,7 @@ def main_menue():
            print(" ")
        else:
            print("option selected")
-           break
+           return option_selected
+
 
     
