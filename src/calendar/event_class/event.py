@@ -22,11 +22,11 @@ class Event:
 
     @staticmethod
     def valid_date(day, month, year):
-        return False
+        return False #no implementado
 
     @staticmethod
     def valid_period(starting_date, ending_date):
-        return False
+        return False #no implementado
 
     # Parameter General Operations
     '''

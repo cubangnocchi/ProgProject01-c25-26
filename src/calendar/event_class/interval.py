@@ -56,6 +56,6 @@ class interval:
         
         return interval_first.get_dates[1], interval_second.get_dates
         
-
+    
 
         

@@ -1,6 +1,8 @@
 from src.calendar.event_class.interval import interval
 from src.calendar.event_class.event import Event
+from src.visual_interface import menues
 import datetime
+
 
 
 def test_intervals():
@@ -30,5 +32,10 @@ def test_event():
 
     print(evento01.get_ending_date())
 
+def date_creation_test():
+    
+    actual_date = datetime.datetime(2026,2,3,14,46)
+    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    print(menues.date_cration_menue(actual_date))
     
        
