@@ -1,6 +1,14 @@
 import datetime
 
-def 
+def input_int_try_bucle(str_request):
+
+    while True:
+        print(str_request)
+        try:
+            #yatusabe
+
+
+    
 
 def main_menue():
 
