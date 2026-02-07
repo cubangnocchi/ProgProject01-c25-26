@@ -7,9 +7,9 @@ class Event:
 
     # Constructors
 
-    def __init__(self, event_name, starting_date, ending_date, item_keys, item_amount):
+    def __init__(self, event_name, dates_interval, item_keys, item_amount):
         self.event_name = event_name
-        self.dates = interval(starting_date, ending_date)
+        self.dates = dates_interval
         self.item_keys = item_keys
         self.item_amount = item_amount
 

@@ -1,18 +1,8 @@
 import datetime
+import console_input_output as io
+from src.calendar.event_class import event, interval 
 
-def input_int_try_bucle(str_request):
-
-    while True:
-        print(str_request)
-        try: 
-            output = int(input())
-            return output
-        except Exception as e:
-            print("Input was no valid because: ",e)
-            
-
-
-    
+  
 
 def main_menue():
 
@@ -37,25 +27,44 @@ def main_menue():
            print("option selected")
            return option_selected
        
-def error_output(error):
-    print(error)
-
-def event_creation_menue():
+def event_creation_menue(actual_date): 
     event_data = []
     print("")
     print("}-------[event creation menue]--------{")
-    #name
+    
+    print("Introduce the name of the event")
+    event_name = input()
 
-    #date
+    event_time = interval_creation_menue(actual_date)
+
+    # implement item selection menue
+
+    output = event.Event(event_name, event_time, [], [])
+
+    return output
+   
+
+def interval_creation_menue(actual_date):
+    
+    print("introduce the starting time")
+    starting_date = date_cration_menue(actual_date)
+    while True:
+        ending_date = date_cration_menue(actual_date)
+        if(starting_date < ending_date):
+            return interval(starting_date, ending_date)
+        else:
+            print("[ERROR] the ending time cannot be before starting time, time travel is not implemented")
+            print(f"actual date: [{starting_date}]")
+        
 
 def date_cration_menue(actual_date):
     while True:
         print("}-------[date creation menue]--------{")
-        day = input_int_try_bucle("introduce the day:")
-        month = input_int_try_bucle("introduce the month:")
-        year = input_int_try_bucle("introduce the year:")
-        hour = input_int_try_bucle("introduce the hour:")
-        minute = input_int_try_bucle("introduce the minutes:")
+        day = io.input_int_bucle("introduce the day:")
+        month = io.input_int_bucle("introduce the month:")
+        year = io.input_int_bucle("introduce the year:")
+        hour = io.input_int_bucle("introduce the hour:")
+        minute = io.input_int_bucle("introduce the minutes:")
         try:
             output = datetime.datetime(year, month, day, hour, minute)
             if(output > actual_date):
