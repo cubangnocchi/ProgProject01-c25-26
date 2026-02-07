@@ -6,6 +6,7 @@ from ..inventory.human import Human
 from ..inventory.item import Item
 from . import restrictions
 from ..visual_interface import menues
+from src.visual_interface import console_input_output as io
 import datetime 
 
 def run():
@@ -28,7 +29,7 @@ def run():
             add_event()        
         
         else:
-            menues.error_output("something went wrong, perhabs the function is not implemented")
+            io.error_output("something went wrong, perhabs the function is not implemented")
 
 def add_event():
     event_data = menues.event_creation_menue()

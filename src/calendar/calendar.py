@@ -4,7 +4,7 @@ from src.calendar.event_class import interval
 
 class Calendar:
 
-    def __init__(self, places_names):
+    def __init__(self, places_names, initial_date):
         self.places = dict.fromkeys(places_names) # <----{this is not safe... try to change it}
         self.actual_date = initial_date
 
