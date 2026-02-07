@@ -4,8 +4,12 @@ def input_int_try_bucle(str_request):
 
     while True:
         print(str_request)
-        try:
-            #yatusabe
+        try: 
+            output = int(input())
+            return output
+        except Exception as e:
+            print("Input was no valid because: ",e)
+            
 
 
     
@@ -47,16 +51,11 @@ def event_creation_menue():
 def date_cration_menue(actual_date):
     while True:
         print("}-------[date creation menue]--------{")
-        print("introduce the day:")
-        day = int(input())
-        print("introduce the month:")
-        month = input()
-        print("introduce the year:")
-        year = input()
-        print("introduce the hour:")
-        hour = input()
-        print("introduce the minutes:")
-        minute = input()
+        day = input_int_try_bucle("introduce the day:")
+        month = input_int_try_bucle("introduce the month:")
+        year = input_int_try_bucle("introduce the year:")
+        hour = input_int_try_bucle("introduce the hour:")
+        minute = input_int_try_bucle("introduce the minutes:")
         try:
             output = datetime.datetime(year, month, day, hour, minute)
             if(output > actual_date):
