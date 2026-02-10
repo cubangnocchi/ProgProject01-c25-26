@@ -46,12 +46,13 @@ def event_creation_menue(actual_date):
 
 def interval_creation_menue(actual_date):
     
-    print("introduce the starting time")
+    print("### introduce the starting time")
     starting_date = date_cration_menue(actual_date)
+    print("### introduce the ending time")
     while True:
         ending_date = date_cration_menue(actual_date)
         if(starting_date < ending_date):
-            return interval(starting_date, ending_date)
+            return interval.interval(starting_date, ending_date)
         else:
             print("[ERROR] the ending time cannot be before starting time, time travel is not implemented")
             print(f"actual date: [{starting_date}]")

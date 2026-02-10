@@ -47,6 +47,9 @@ class Event:
     
     def get_item_amount(self):
         return self.item_amount
+    
+    def get_name(self):
+        return self.event_name
 
     # Parameter Construction Methods
     '''

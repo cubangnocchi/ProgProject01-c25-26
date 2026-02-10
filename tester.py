@@ -34,6 +34,13 @@ def date_creation_test():
     
     actual_date = datetime.datetime(2026,2,3,14,46)
     print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    print(menues.date_cration_menue(actual_date))
+    elevento = menues.event_creation_menue(actual_date)
+    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    print(elevento.get_starting_date())
+    
+    print(elevento.get_ending_date())
+
+    
+    print(elevento.get_name())
     
        
