@@ -1,6 +1,8 @@
 import datetime
 import src.visual_interface.console_input_output as io
+
 from src.calendar.event_class import event, interval 
+from src.inventory import inventory, human, item
 
   
 
@@ -37,12 +39,18 @@ def event_creation_menue(actual_date):
 
     event_time = interval_creation_menue(actual_date)
 
-    # implement item selection menue
-
     output = event.Event(event_name, event_time, [], [])
 
     return output
-   
+#! =================================================================================
+def inventory_selection_menue(available_from_inventory: inventory.Inventory):
+    output_items = 0
+    output_people = people_selection_menue(available_from_inventory.get_people)
+
+def people_selection_menue(people_list):
+    print("implementando")
+
+#! =================================================================================
 
 def interval_creation_menue(actual_date):
     

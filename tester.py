@@ -1,5 +1,9 @@
 from src.calendar.event_class.interval import interval
 from src.calendar.event_class.event import Event
+from src.inventory.human import Human
+from src.inventory.inventory import Inventory
+from src.inventory.item import Item
+
 from src.visual_interface import menues
 import datetime
 
@@ -43,4 +47,21 @@ def date_creation_test():
     
     print(elevento.get_name())
     
-       
+def presetInventoryCreator():
+    print("preset inventory created")
+
+    cosa01 = (Item("comida", True)).set_amount(10)
+    cosa02 = Item("cosaESpecialESpacial", False)
+
+    listadeitems = [cosa01,cosa02]
+
+    fechadenacimiento = datetime.datetime(2000,5,5)
+    persona01 = Human("Pepito","Ingeniero", fechadenacimiento)
+    persona02 = Human("Juanita", "Astrofísica", fechadenacimiento)
+
+    listadegente = [persona01,persona02]
+
+    elinventario = Inventory(listadeitems, listadegente)
+
+    return elinventario
+           

@@ -10,6 +10,9 @@ class Inventory:
     def get_people(self):
         return self.people
     
+    #! hay que ver cómo poder hacer referencia a los items por un index mmmmmmmmmmmmmmmmmmmmmmm
+    #! convierte todo a diccionario -_-
+    
     
         
 
