@@ -3,8 +3,6 @@ from src.calendar.event_class.event import Event
 from src.visual_interface import menues
 import datetime
 
-
-
 def test_intervals():
 
     f1 = datetime.datetime(2200, 10, 10)

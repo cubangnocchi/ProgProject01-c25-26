@@ -1,5 +1,5 @@
 import datetime
-import console_input_output as io
+import src.visual_interface.console_input_output as io
 from src.calendar.event_class import event, interval 
 
   
