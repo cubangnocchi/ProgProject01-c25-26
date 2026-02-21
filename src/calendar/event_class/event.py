@@ -7,7 +7,12 @@ class Event:
 
     # Constructors
 
-    def __init__(self, event_name, dates_interval, item_keys, item_amount):
+    def __init__(self,
+                 event_name: str,
+                 dates_interval: interval, 
+                 item_keys,
+                 item_amount):
+
         self.event_name = event_name
         self.dates = dates_interval
         self.item_keys = item_keys
@@ -50,6 +55,29 @@ class Event:
     
     def get_name(self):
         return self.event_name
+    
+    # Data format method
+
+    def get_as_dictionary(self):
+
+        output = {
+            "NAME": self.event_name,
+            "DATE_START": self.get_starting_date(),
+            "DATE_END": self.get_ending_date(),
+            "ITEM_KEYS": self.item_keys,
+            "ITEM_AMOUNT": self.item_amount
+        }
+
+        return output
+    
+    @staticmethod
+    def dictionary_to_event(event_as_dictionary):
+        
+        Event(event_as_dictionary["NAME"],
+              event_as_dictionary["DATE_START"],
+              event_as_dictionary["DATE_END"],
+              event_as_dictionary["ITEM_KEYS"],
+              event_as_dictionary["ITEM_AMOUNT"],)
 
     # Parameter Construction Methods
     '''
