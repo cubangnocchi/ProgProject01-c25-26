@@ -73,11 +73,13 @@ class Event:
     @staticmethod
     def dictionary_to_event(event_as_dictionary):
         
-        Event(event_as_dictionary["NAME"],
-              event_as_dictionary["DATE_START"],
-              event_as_dictionary["DATE_END"],
-              event_as_dictionary["ITEM_KEYS"],
-              event_as_dictionary["ITEM_AMOUNT"],)
+        output = Event(event_as_dictionary["NAME"],
+                       event_as_dictionary["DATE_START"],
+                       event_as_dictionary["DATE_END"],
+                       event_as_dictionary["ITEM_KEYS"],
+                       event_as_dictionary["ITEM_AMOUNT"],)
+        
+        return output
 
     # Parameter Construction Methods
     '''
