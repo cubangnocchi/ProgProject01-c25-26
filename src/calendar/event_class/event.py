@@ -41,10 +41,10 @@ class Event:
     def get_interval(self):
         return self.dates
     
-    def get_starting_date(self):
+    def get_starting_date(self) -> datetime.datetime:
         return self.dates.start_date
     
-    def get_ending_date(self):
+    def get_ending_date(self) -> datetime.datetime: 
         return self.dates.end_date
     
     def get_item_keys(self):
@@ -62,8 +62,8 @@ class Event:
 
         output = {
             "NAME": self.event_name,
-            "DATE_START": self.get_starting_date(),
-            "DATE_END": self.get_ending_date(),
+            "DATE_START": self.get_starting_date().__str__(),
+            "DATE_END": self.get_ending_date().__str__(),
             "ITEM_KEYS": self.item_keys,
             "ITEM_AMOUNT": self.item_amount
         }
@@ -73,9 +73,13 @@ class Event:
     @staticmethod
     def dictionary_to_event(event_as_dictionary):
         
+        start_date = datetime.datetime.strptime(event_as_dictionary["DATE_START"], '%Y-%m-%d %H:%M:%S')
+        end_date = datetime.datetime.strptime(event_as_dictionary["DATE_END"], '%Y-%m-%d %H:%M:%S')
+        the_interval = interval(start_date, 
+                                end_date)
+
         output = Event(event_as_dictionary["NAME"],
-                       event_as_dictionary["DATE_START"],
-                       event_as_dictionary["DATE_END"],
+                       the_interval,
                        event_as_dictionary["ITEM_KEYS"],
                        event_as_dictionary["ITEM_AMOUNT"],)
         
