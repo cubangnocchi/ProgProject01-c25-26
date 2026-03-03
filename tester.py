@@ -3,10 +3,40 @@ from src.calendar.event_class.event import Event
 from src.inventory.human import Human
 from src.inventory.inventory import Inventory
 from src.inventory.item import Item
-
+from src.calendar.calendar import Calendar
 from src.visual_interface import menues
-import datetime
+from datetime import datetime
 
+def calendario_test():
+    inter10 = interval(datetime(2010, 10, 10), datetime(2010, 11, 11))
+    inter11 = interval(datetime(2011, 10, 10), datetime(2011, 11, 11))
+    inter12 = interval(datetime(2012, 10, 10), datetime(2012, 11, 11))
+    inter13 = interval(datetime(2013, 10, 10), datetime(2013, 11, 11))
+    inter14 = interval(datetime(2014, 10, 10), datetime(2014, 11, 11))
+    inter15 = interval(datetime(2015, 10, 10), datetime(2015, 11, 11))
+    inter16 = interval(datetime(2016, 10, 10), datetime(2016, 11, 11))
+    inter17 = interval(datetime(2017, 10, 10), datetime(2017, 11, 11))
+    
+    e01 = Event("10", inter10, [], [])
+    e02 = Event("11", inter11, [], [])
+    e03 = Event("12", inter12, [], [])
+    e04 = Event("13", inter13, [], [])
+    e05 = Event("14", inter14, [], [])
+    e06 = Event("15", inter15, [], [])
+    e07 = Event("16", inter16, [], [])
+    e08 = Event("17", inter17, [], [])
+    
+    places = {
+        "sala01": [e01, e02, e03, e07],
+        "sala02": [e04, e05, e06, e08]
+    }
+
+    papa = Calendar(places, datetime(2020, 10, 10))
+
+
+
+
+'''
 def test_intervals():
 
     f1 = datetime.datetime(2200, 10, 10)
@@ -64,4 +94,4 @@ def presetInventoryCreator():
     elinventario = Inventory(listadeitems, listadegente)
 
     return elinventario
-           
+           '''
