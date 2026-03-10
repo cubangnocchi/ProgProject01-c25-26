@@ -3,7 +3,7 @@
 class Item:
     
 
-    def __init__(self, item_type, is_expendable):
+    def __init__(self, item_type: str, is_expendable: bool):
         self.item_type = item_type
         self.is_expendable = is_expendable
         self.amount = -1
@@ -25,13 +25,31 @@ class Item:
         self.amount = new_amount
 
     def convert_to_dictionary(self):
+
+        is_expendable_as_int = 0
+        if self.is_expendable:
+            is_expendable_as_int = 1
+        
         output = {
-
+            "ITEM_TYPE": self.item_type,
+            "IS_EXPENDABLE": is_expendable_as_int,
+            "AMOUNT": self.amount
         }
-
-
+        
+        return output
     
+    @staticmethod
+    def convert_dictionary_to_item(dictionary: dict):
 
+        item_type = dictionary["ITEM_TYPE"]
 
+        is_expendable = False
+        if(dictionary["IS_EXPENDABLE"] == "1"):
+            is_expendable = True
 
-    
+        amount = int(dictionary["AMOUNT"])
+
+        output = Item(item_type, is_expendable)
+        output.set_amount(amount)
+
+        return output
