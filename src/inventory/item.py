@@ -3,13 +3,13 @@
 class Item:
     
 
-    def __init__(self, type, is_expendable):
-        self.type = type
+    def __init__(self, item_type, is_expendable):
+        self.item_type = item_type
         self.is_expendable = is_expendable
         self.amount = -1
 
     def get_type(self):
-        return self.type
+        return self.item_type
 
     def is_it_expendable(self):
         return self.is_expendable
@@ -23,6 +23,11 @@ class Item:
 
     def set_amount(self, new_amount):
         self.amount = new_amount
+
+    def convert_to_dictionary(self):
+        output = {
+
+        }
 
 
     
