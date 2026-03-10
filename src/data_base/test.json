@@ -1,0 +1,75 @@
+{
+    "CALENDAR": {
+        "PLACES": {
+            "sala01": {
+                "0": {
+                    "NAME": "10",
+                    "DATE_START": "2010-10-10 00:00:00",
+                    "DATE_END": "2010-11-11 00:00:00",
+                    "ITEM_KEYS": [],
+                    "ITEM_AMOUNT": []
+                },
+                "1": {
+                    "NAME": "11",
+                    "DATE_START": "2011-10-10 00:00:00",
+                    "DATE_END": "2011-11-11 00:00:00",
+                    "ITEM_KEYS": [],
+                    "ITEM_AMOUNT": []
+                },
+                "2": {
+                    "NAME": "12",
+                    "DATE_START": "2012-10-10 00:00:00",
+                    "DATE_END": "2012-11-11 00:00:00",
+                    "ITEM_KEYS": [],
+                    "ITEM_AMOUNT": []
+                },
+                "3": {
+                    "NAME": "16",
+                    "DATE_START": "2016-10-10 00:00:00",
+                    "DATE_END": "2016-11-11 00:00:00",
+                    "ITEM_KEYS": [],
+                    "ITEM_AMOUNT": []
+                }
+            },
+            "sala02": {
+                "0": {
+                    "NAME": "10",
+                    "DATE_START": "2010-10-10 00:00:00",
+                    "DATE_END": "2010-11-11 00:00:00",
+                    "ITEM_KEYS": [],
+                    "ITEM_AMOUNT": []
+                },
+                "1": {
+                    "NAME": "13",
+                    "DATE_START": "2013-10-10 00:00:00",
+                    "DATE_END": "2013-11-11 00:00:00",
+                    "ITEM_KEYS": [],
+                    "ITEM_AMOUNT": []
+                },
+                "2": {
+                    "NAME": "14",
+                    "DATE_START": "2014-10-10 00:00:00",
+                    "DATE_END": "2014-11-11 00:00:00",
+                    "ITEM_KEYS": [],
+                    "ITEM_AMOUNT": []
+                },
+                "3": {
+                    "NAME": "15",
+                    "DATE_START": "2015-10-10 00:00:00",
+                    "DATE_END": "2015-11-11 00:00:00",
+                    "ITEM_KEYS": [],
+                    "ITEM_AMOUNT": []
+                },
+                "4": {
+                    "NAME": "17",
+                    "DATE_START": "2017-10-10 00:00:00",
+                    "DATE_END": "2017-11-11 00:00:00",
+                    "ITEM_KEYS": [],
+                    "ITEM_AMOUNT": []
+                }
+            }
+        },
+        "INITIAL-DATE": "2020-10-10 00:00:00"
+    },
+    "INVENTORY": {}
+}

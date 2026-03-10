@@ -20,16 +20,16 @@ class Calendar:
     
     #-------<<<[change parameters]>>>-------
 
-    def insert_event_in_place(self, new_event: Event, place_key):
+    def insert_event_in_place(self, new_event: Event, place_key: str):
 
-        event_list = self.places(place_key)
+        event_list = self.places[place_key]
         new_event_start_date = new_event.get_starting_date()
 
         if event_list == None:
-            self.places(place_key).append(new_event)
+            self.places[place_key].append(new_event)
         
         else:
-            self.places(place_key) = Calendar.event_binary_insert(self.places[place_key], new_event)
+            self.places[place_key] = Calendar.event_binary_insert(self.places[place_key], new_event)
     
     #-------<<<[json convertion methods]>>>-------
 
@@ -62,9 +62,9 @@ class Calendar:
             PLACES_processed[place_name] = Calendar.dictionary_to_event_list(PLACES_raw[place_name])
         
 
-        output = Calendar()
+        output = Calendar(PLACES_processed, dictionary["INITIAL-DATE"])
 
-        return []
+        return output
 
     #-------<<<[internal methods]>>>-------
     

@@ -6,8 +6,10 @@ from src.inventory.item import Item
 from src.calendar.calendar import Calendar
 from src.visual_interface import menues
 from datetime import datetime
+from src.data_base import data_management
 
 def calendario_test():
+    FILEPATH = 'src/data_base/test.json'
     inter10 = interval(datetime(2010, 10, 10), datetime(2010, 11, 11))
     inter11 = interval(datetime(2011, 10, 10), datetime(2011, 11, 11))
     inter12 = interval(datetime(2012, 10, 10), datetime(2012, 11, 11))
@@ -32,8 +34,28 @@ def calendario_test():
     }
 
     papa = Calendar(places, datetime(2020, 10, 10))
+   
 
+    lolo = Inventory([],[])
+    data = data_management.convert_objects_to_json(papa, lolo)
 
+    data_management.save_data(FILEPATH, data)
+
+    data = data_management.load_data(FILEPATH)
+
+    data = data_management.convert_json_to_objects(data)
+    
+    
+    papa = data[0]
+    
+    papa.insert_event_in_place(e01, "sala02")
+
+    
+    data = data_management.convert_objects_to_json(papa, lolo)
+
+    data_management.save_data(FILEPATH, data)
+
+    
 
 
 '''
