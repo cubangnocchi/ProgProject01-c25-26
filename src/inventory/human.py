@@ -1,9 +1,9 @@
-
+from datetime import datetime
 
 class Human:
-    def __init__(self, name, type, day_born):
+    def __init__(self, name: str, speciality: str, day_born: datetime):
         self.name = name
-        self.type = type #engineer, captain, kid, doctor, political comisair, 
+        self.speciality = speciality #engineer, captain, kid, doctor, political comisair, 
         self.day_born = day_born
 
     def get_name(self):
@@ -13,4 +13,23 @@ class Human:
         return self.type
 
     def get_age(self, actualdate):
-        return self.day_born - actualdate
+        return self.day_born - actualdate #!revisaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaar
+    
+    def convert_to_dictionary(self):
+        output = {
+            "NAME" = self.name,
+            "SPECIALITY" = self.type,
+            "BORN_DATE" = (self.day_born.__str__()),
+        }
+
+        return output
+    
+    @staticmethod
+    def convert_from_dictionary_to_human(data: dict):
+        name = data["NAME"]
+        speciality = data["SPECIALITY"]
+        day_born = datetime.strptime(data["BORN_DATE"], '%Y-%m-%d %H:%M:%S')
+
+        output = Human(name, speciality, day_born)
+
+        return output
