@@ -16,10 +16,11 @@ class Human:
         return self.day_born - actualdate #!revisaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaar
     
     def convert_to_dictionary(self):
+        
         output = {
-            "NAME" = self.name,
-            "SPECIALITY" = self.type,
-            "BORN_DATE" = (self.day_born.__str__()),
+            "NAME": self.name,
+            "SPECIALITY": self.type,
+            "BORN_DATE": (self.day_born.__str__())
         }
 
         return output
