@@ -25,6 +25,14 @@ class Inventory:
     def get_people_keys(self):
         return list(self.people.keys())
     
+    def add_item(self, new_item: Item):
+        self.items[self.next_key] = Item
+        self.next_key += 1
+
+    def add_human(self, new_human: Human):
+        self.people[self.next_key] = new_human
+        self.next_key += 1
+     
     def convert_to_dict(self):
         item_keys = self.get_items_keys()
         people_keys = self.get_people_keys()
@@ -39,13 +47,16 @@ class Inventory:
 
         output = {
             "ITEMS": converted_items,
-            "PEOPLE": converted_humans 
+            "PEOPLE": converted_humans,
+            "NEXT_KEY": self.next_key.__str__()
         }
 
         return output
     
     @staticmethod
     def convert_dict_to_inventory(inventory_dict: dict[str, dict]):
+
+        next_key = int(inventory_dict["NEXT_KEY"])
         
         items_as_dict = inventory_dict["ITEMS"]
         humans_as_dict = inventory_dict["PEOPLE"]
@@ -53,11 +64,18 @@ class Inventory:
         item_keys = list(items_as_dict.keys())
         people_keys = list(humans_as_dict.keys())
 
-        
+        converted_items = {}
+        converted_peopple = {}
 
         for key in item_keys:
+            converted_items[key] = Item.convert_dictionary_to_item(items_as_dict[key])
 
-        
+        for key in people_keys:
+            converted_peopple[key] = Human.convert_from_dictionary_to_human(humans_as_dict[key])
+
+        output = Inventory(converted_items, converted_peopple, next_key)
+
+        return output
 
 
     
