@@ -7,6 +7,23 @@ from src.calendar.calendar import Calendar
 from src.visual_interface import menues
 from datetime import datetime
 from src.data_base import data_management
+from src.visual_interface.menue import Menue
+
+def menue_class_test():
+    options = {
+        "1": "patata",
+        "2": "lololo",
+        "x": "lululu"
+    }
+    mmmmm = Menue(
+        "el menú",
+        options,
+        "escribe y da enter ahí"
+    )
+
+    a = mmmmm.print()
+    print(a)
+
 
 def calendario_test():
     FILEPATH = 'src/data_base/test.json'
@@ -54,9 +71,6 @@ def calendario_test():
     data = data_management.convert_objects_to_json(papa, lolo)
 
     data_management.save_data(FILEPATH, data)
-
-    
-
 
 '''
 def test_intervals():

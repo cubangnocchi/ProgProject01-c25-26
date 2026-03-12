@@ -4,7 +4,6 @@ import src.visual_interface.console_input_output as io
 from src.calendar.event_class import event, interval 
 from src.inventory import inventory, human, item
 
-  
 
 def main_menue():
 
