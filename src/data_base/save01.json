@@ -1,0 +1,21 @@
+{
+    "CALENDAR": {
+        "PLACES": {
+            "Control Bridge": {},
+            "Crew Quarters": {},
+            "Fusion Reactor": {},
+            "Mining Bay": {},
+            "Cargo Bay": {},
+            "Laboratory": {},
+            "Services Room": {},
+            "Data Center": {},
+            "Ship Exterior": {}
+        },
+        "INITIAL-DATE": "2350-01-01 00:00:00"
+    },
+    "INVENTORY": {
+        "ITEMS": {},
+        "PEOPLE": {},
+        "NEXT_KEY": "0"
+    }
+}

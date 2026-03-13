@@ -1,6 +1,6 @@
 import json
 import os
-import datetime
+from datetime import datetime
 from src.calendar.calendar import Calendar
 from src.inventory.inventory import Inventory
 
@@ -22,13 +22,13 @@ def convert_json_to_objects(data):
     try:
         output = (Calendar.convert_dictionary_to_calendar(data["CALENDAR"]),
                   Inventory.convert_dict_to_inventory(data["INVENTORY"]))
-    
+        print("debug, load worked")
         return output
     except:
-        return defoult_empty_data
+        return defoult_empty_data()
     
 def defoult_empty_data():
-    places = {
+    defoult_places = {
         "Control Bridge" : [],
         "Crew Quarters"  : [],
         "Fusion Reactor" : [],
@@ -39,9 +39,11 @@ def defoult_empty_data():
         "Data Center"    : [],
         "Ship Exterior"  : [],
     }
-    empty_calendar = Calendar()
+    defoult_starting_date = datetime(2350, 1, 1)
 
-    empty_inventory = Inventory()
+    empty_calendar = Calendar(defoult_places, defoult_starting_date)
+
+    empty_inventory = Inventory({}, {}, 0)
 
     output = (empty_calendar, empty_inventory)
 
