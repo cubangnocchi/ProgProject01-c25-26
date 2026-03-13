@@ -22,7 +22,7 @@ def convert_json_to_objects(data):
     try:
         output = (Calendar.convert_dictionary_to_calendar(data["CALENDAR"]),
                   Inventory.convert_dict_to_inventory(data["INVENTORY"]))
-        print("debug, load worked")
+        
         return output
     except:
         return defoult_empty_data()

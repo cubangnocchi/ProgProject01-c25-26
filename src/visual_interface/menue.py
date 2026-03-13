@@ -23,7 +23,10 @@ class SelectionMenue:
                 print()
             else:
                 return selected_option
-
+    
+    @staticmethod
+    def create_numerable_dict_from_list():
+        
 
             
 

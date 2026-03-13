@@ -28,7 +28,7 @@ def main_menue():
     return mainmenue.print()
 
 
-def event_creation_menue(actual_date): 
+def event_creation_menue(actual_date, places_list): 
     event_data = []
     print("")
     print("}-------[event creation menue]--------{")
@@ -38,7 +38,7 @@ def event_creation_menue(actual_date):
 
     event_time = interval_creation_menue(actual_date)
 
-    output = event.Event(event_name, event_time, [], [])
+    output = (event.Event(event_name, event_time, [], []), place)
 
     return output
 #! =================================================================================

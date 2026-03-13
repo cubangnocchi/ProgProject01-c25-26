@@ -12,8 +12,11 @@ class Calendar:
 
     #-------<<<[get parametrs]>>>-------
 
-    def get_places (self):
+    def get_places_with_events (self):
         return self.places
+    
+    def get_places_names(self):
+        return list(self.places.keys())
     
     def get_event_list_from_place (self, place_key):
         return self.places(place_key)
