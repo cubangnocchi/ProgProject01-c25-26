@@ -4,22 +4,31 @@ from ..calendar.event_class.interval import interval
 from ..inventory.inventory import Inventory
 from ..inventory.human import Human
 from ..inventory.item import Item
-from . import restrictions
+#from . import restrictions
 from ..visual_interface import menues
 from src.visual_interface import console_input_output as io
+from src.data_base import data_management
 import datetime 
 
 def run():
-    # main_calendar = something that loads everything 
-    # main_inventory = something that loads the inventory
-    actual_date = datetime.datetime(2026,2,3,14,46)
-    #! remember to put an automatic empty calendar and inventory if there is none
+    FILEPATH = 'src/data_base/save01.json'
+    
+    raw_data = data_management.load_data(FILEPATH)
+    data = data_management.convert_json_to_objects(raw_data)
+    main_calendar = data[0]
+    main_inventory = data[1]
 
+    main_bucle()
+
+    save = data_management.convert_objects_to_json(main_calendar, main_inventory)
+    data_management.save_data(FILEPATH, save)
+
+def main_bucle():
+    
     while True:
         option_selected = menues.main_menue()
 
         if(option_selected == "x"):
-            #save all()
             break
 
         #if(option_selected == 1):

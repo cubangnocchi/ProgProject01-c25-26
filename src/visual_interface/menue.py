@@ -1,7 +1,7 @@
-class Menue:
+class SelectionMenue:
     def __init__(self, header: str, options: dict[str, str], instruction: str):
         self.header = header
-        self.options = options #(asigned input, )
+        self.options = options #(asigned input key, the option)
         self.instruction = instruction
     
     def print(self):

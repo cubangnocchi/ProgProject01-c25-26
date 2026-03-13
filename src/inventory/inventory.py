@@ -26,7 +26,7 @@ class Inventory:
         return list(self.people.keys())
     
     def add_item(self, new_item: Item):
-        self.items[self.next_key] = Item
+        self.items[self.next_key.__str__()] = Item
         self.next_key += 1
 
     def add_human(self, new_human: Human):

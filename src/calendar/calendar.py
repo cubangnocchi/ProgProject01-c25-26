@@ -33,7 +33,7 @@ class Calendar:
     
     #-------<<<[json convertion methods]>>>-------
 
-    def convert_to_dictionary(self):
+    def convert_to_dict(self):
         
         output = {
             "PLACES": {},
