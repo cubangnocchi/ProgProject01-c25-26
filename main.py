@@ -1,7 +1,7 @@
 #import tester
 from src.manager import manager
 
-manager.run
+manager.run()
 
 #tester.menue_class_test()
 

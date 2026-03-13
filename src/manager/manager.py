@@ -6,7 +6,7 @@ from ..inventory.human import Human
 from ..inventory.item import Item
 #from . import restrictions
 from ..visual_interface import menues
-from src.visual_interface import console_input_output as io
+from src.visual_interface import console_in_out as io
 from src.data_base import data_management
 import datetime 
 

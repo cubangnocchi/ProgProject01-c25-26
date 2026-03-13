@@ -1,5 +1,6 @@
 import json
 import os
+import datetime
 from src.calendar.calendar import Calendar
 from src.inventory.inventory import Inventory
 
@@ -17,10 +18,33 @@ def load_data(FILEPATH):
         print(f"Error loading the data base: {Exception}")
 
 def convert_json_to_objects(data):
+
+    try:
+        output = (Calendar.convert_dictionary_to_calendar(data["CALENDAR"]),
+                  Inventory.convert_dict_to_inventory(data["INVENTORY"]))
     
-    output = (Calendar.convert_dictionary_to_calendar(data["CALENDAR"]),
-              Inventory.convert_dict_to_inventory(data["INVENTORY"]))
+        return output
+    except:
+        return defoult_empty_data
     
+def defoult_empty_data():
+    places = {
+        "Control Bridge" : [],
+        "Crew Quarters"  : [],
+        "Fusion Reactor" : [],
+        "Mining Bay"     : [],
+        "Cargo Bay"      : [],
+        "Laboratory"     : [],
+        "Services Room"  : [],
+        "Data Center"    : [],
+        "Ship Exterior"  : [],
+    }
+    empty_calendar = Calendar()
+
+    empty_inventory = Inventory()
+
+    output = (empty_calendar, empty_inventory)
+
     return output
 
 def convert_objects_to_json(calendar: Calendar, inventory: Inventory):

@@ -1,15 +1,14 @@
 import datetime
 
-from src.visual_interface import console_input_output
-from src.visual_interface.menue import Menue
+from src.visual_interface import console_in_out
+from src.visual_interface.menue import SelectionMenue
 
 from src.calendar.event_class import event, interval 
 from src.inventory import inventory, human, item
 
-
 def main_menue():
     
-    mainmenue = Menue(
+    mainmenue = SelectionMenue(
         "MAIN MENUE",
         {
             "1": "list events",
@@ -69,11 +68,11 @@ def interval_creation_menue(actual_date):
 def date_cration_menue(actual_date):
     while True:
         print("}-------[date creation menue]--------{")
-        day = console_input_output.input_int_bucle("introduce the day:")
-        month = console_input_output.input_int_bucle("introduce the month:")
-        year = console_input_output.input_int_bucle("introduce the year:")
-        hour = console_input_output.input_int_bucle("introduce the hour:")
-        minute = console_input_output.input_int_bucle("introduce the minutes:")
+        day = console_in_out.input_int_bucle("introduce the day:")
+        month = console_in_out.input_int_bucle("introduce the month:")
+        year = console_in_out.input_int_bucle("introduce the year:")
+        hour = console_in_out.input_int_bucle("introduce the hour:")
+        minute = console_in_out.input_int_bucle("introduce the minutes:")
         try:
             output = datetime.datetime(year, month, day, hour, minute)
             if(output > actual_date):
