@@ -12,20 +12,13 @@ def main_menue():
         "MAIN MENUE",
         {
             "1": "list events",
-            "2": "list items",
-            "3": "list crew",
-            "4": "create event",
-            "5": "delete event",
-            "6": "add item",
-            "7": "delete item",
-            "8": "add crew member",
-            "9": "leave crew member",
+            "2": "create event",
             "x": "exit"
         },
         "press a [key] + [Enter↲] to select one of the options:"
     )
 
-    return mainmenue.print()
+    return mainmenue.print_get_key()
 
 
 def event_creation_menue(actual_date: datetime, places_names_list: dict[str]): 
@@ -38,10 +31,11 @@ def event_creation_menue(actual_date: datetime, places_names_list: dict[str]):
 
     event_time = interval_creation_menue(actual_date)
     
-    places_names_list_dict = SelectionMenue.create_numerable_dict_from_list(places_names_list_dict)
-    event_place = SelectionMenue("Select a Place",
+    places_names_list_dict = SelectionMenue.create_numerable_dict_from_list(places_names_list)
+    event_place_menue = SelectionMenue("Select a Place",
                                  places_names_list_dict,
                                  "introduce a number and press [Enter↲] to select one of the options:")
+    event_place = event_place_menue.print_get_option()
 
     output = (event.Event(event_name, event_time, [], []), event_place)
 

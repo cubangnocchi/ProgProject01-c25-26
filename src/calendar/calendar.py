@@ -21,6 +21,10 @@ class Calendar:
     def get_event_list_from_place (self, place_key):
         return self.places(place_key)
     
+    def get_actual_date(self) -> datetime:
+        return self.actual_date
+    
+    
     #-------<<<[change parameters]>>>-------
 
     def insert_event_in_place(self, new_event: Event, place_key: str):
@@ -65,7 +69,7 @@ class Calendar:
             PLACES_processed[place_name] = Calendar.dictionary_to_event_list(PLACES_raw[place_name])
         
 
-        output = Calendar(PLACES_processed, dictionary["INITIAL-DATE"])
+        output = Calendar(PLACES_processed, datetime.strptime(dictionary["INITIAL-DATE"], '%Y-%m-%d %H:%M:%S'))
 
         return output
 
