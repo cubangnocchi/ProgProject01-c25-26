@@ -18,7 +18,7 @@ class SelectionMenue:
 
             selected_option = input()
 
-            if(selected_option not in option_keys_list):
+            if(not (selected_option in option_keys_list)):
                 print("ERROR: option not available, try again:")
                 print()
             else:
@@ -38,7 +38,7 @@ class SelectionMenue:
 
             selected_option = input()
 
-            if(selected_option not in option_keys_list):
+            if(not (selected_option in option_keys_list)):
                 print("ERROR: option not available, try again:")
                 print()
             else:
@@ -49,7 +49,7 @@ class SelectionMenue:
         output_dictionary = {}
         i = 0
         for element in the_list:
-            output_dictionary[i] = element
+            output_dictionary[str(i)] = element
             i += 1
 
         return output_dictionary
