@@ -1,7 +1,7 @@
-import datetime
+from datetime import datetime
 
 from src.visual_interface import console_in_out
-from src.visual_interface.menue import SelectionMenue
+from src.visual_interface.selection_menue import SelectionMenue
 
 from src.calendar.event_class import event, interval 
 from src.inventory import inventory, human, item
@@ -28,7 +28,7 @@ def main_menue():
     return mainmenue.print()
 
 
-def event_creation_menue(actual_date, places_list): 
+def event_creation_menue(actual_date: datetime, places_names_list: dict[str]): 
     event_data = []
     print("")
     print("}-------[event creation menue]--------{")
@@ -37,8 +37,13 @@ def event_creation_menue(actual_date, places_list):
     event_name = input()
 
     event_time = interval_creation_menue(actual_date)
+    
+    places_names_list_dict = SelectionMenue.create_numerable_dict_from_list(places_names_list_dict)
+    event_place = SelectionMenue("Select a Place",
+                                 places_names_list_dict,
+                                 "introduce a number and press [Enter↲] to select one of the options:")
 
-    output = (event.Event(event_name, event_time, [], []), place)
+    output = (event.Event(event_name, event_time, [], []), event_place)
 
     return output
 #! =================================================================================
@@ -74,7 +79,7 @@ def date_cration_menue(actual_date):
         hour = console_in_out.input_int_bucle("introduce the hour:")
         minute = console_in_out.input_int_bucle("introduce the minutes:")
         try:
-            output = datetime.datetime(year, month, day, hour, minute)
+            output = datetime(year, month, day, hour, minute)
             if(output > actual_date):
                 return output
             else:

@@ -7,7 +7,7 @@ from src.calendar.calendar import Calendar
 from src.visual_interface import menues
 from datetime import datetime
 from src.data_base import data_management
-from src.visual_interface.menue import Menue
+from src.visual_interface.selection_menue import Menue
 
 def menue_class_test():
     options = {
