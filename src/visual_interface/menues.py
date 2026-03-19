@@ -11,14 +11,36 @@ def main_menue():
     mainmenue = SelectionMenue(
         "MAIN MENUE",
         {
+           #" ": " ",
             "1": "list events",
-            "2": "create event",
+            "2": "create item",
+            "3": "create event",
+            "4": "add crew member",
             "x": "exit"
         },
         "press a [key] + [Enter↲] to select one of the options:"
     )
 
     return mainmenue.print_get_key()
+
+def event_listing_menue(places: dict[str, list[event.Event]]):
+    
+    mode_menue = SelectionMenue(
+        "Select how to list the events",
+        {
+            "1": "select from place",
+            "2": "list all"
+            "x": "go back"
+        }
+        "press a [key] + [Enter↲] to select one of the options:"
+    )
+    mode = mode_menue.print_get_key()
+
+    if(mode == "x"):
+        
+
+    places_names = list(places.keys)
+    
 
 
 def event_creation_menue(actual_date: datetime, places_names_list: dict[str]): 

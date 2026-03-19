@@ -34,10 +34,10 @@ def main_bucle():
         if(option_selected == "x"):
             break
 
-        #if(option_selected == 1):
-            #lista
+        if(option_selected == 1):
+            
 
-        if(option_selected == "2"):
+        if(option_selected == "3"):
             add_event()        
         
         else:
