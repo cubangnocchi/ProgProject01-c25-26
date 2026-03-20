@@ -1,4 +1,4 @@
-from src.calendar.calendar import Calendar
+from src.calendar.calendar import Calendar 
 from src.calendar.event_class.event import Event
 from src.calendar.event_class.interval import interval
 from src.inventory.inventory import Inventory
@@ -34,14 +34,17 @@ def main_bucle():
         if(option_selected == "x"):
             break
 
-        if(option_selected == 1):
-            
+        if(option_selected == "1"):
+            menues.event_listing_menue(main_calendar.get_places_with_events())
+
+        if(option_selected == "2"):
+            add_item()
 
         if(option_selected == "3"):
             add_event()        
         
-        else:
-            io.error_output("something went wrong, perhabs the function is not implemented")
+def add_item():
+    main_inventory.add_item(menues.item_creation_menue())
 
 def add_event():
     event_data: tuple[Event, str] = menues.event_creation_menue(main_calendar.get_actual_date(), 

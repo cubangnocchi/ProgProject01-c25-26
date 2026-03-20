@@ -3,11 +3,14 @@
 class Item:
     
 
-    def __init__(self, item_type: str, is_expendable: bool):
+    def __init__(self, item_name: str, item_type: str, is_expendable: bool):
+        self.name = item_name
         self.item_type = item_type
         self.is_expendable = is_expendable
         self.amount = -1
-
+    
+    def get_name(self):
+        return self.name
     def get_type(self):
         return self.item_type
 

@@ -102,7 +102,7 @@ class Calendar:
             return [to_insert]
     
         if(to_insert in event_list):
-            print("the number is already in")
+            print("the event is already in")
             return event_list
         
         left = 0

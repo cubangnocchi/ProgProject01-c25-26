@@ -13,7 +13,7 @@ def main_menue():
         {
            #" ": " ",
             "1": "list events",
-            "2": "create item",
+            "2": "add item to inventoory",
             "3": "create event",
             "4": "add crew member",
             "x": "exit"
@@ -23,24 +23,79 @@ def main_menue():
 
     return mainmenue.print_get_key()
 
+def item_creation_menue():
+    print("----[item addition menue]----")
+    print("introduce the item name: ")
+    name = input()
+    print("introduce the type: ")
+    item_type = input()
+    
+    expendable_menue = SelectionMenue( #this is clearly completly unnecesary
+        "Is it expendable?",
+        {
+            "1": "yes",
+            "0": "no"
+        },
+        "press a [key] + [Enter↲] to select one of the options:"
+    )
+    exp_mn_in = expendable_menue.print_get_key()
+    if(exp_mn_in == "1"):
+        expendable = True
+    if(exp_mn_in == "0"):
+        expendable = False
+
+    new_item = item.Item(name, item_type, expendable)
+
+    amount_menue = SelectionMenue( #this is clearly completly unnecesary
+        "Is it expendable?",
+        {
+            "1": "yes",
+            "0": "no"
+        },
+        "press a [key] + [Enter↲] to select one of the options:"
+    )
+    amount_menue_input = amount_menue.print_get_key()
+
+    if(amount_menue_input == "1"):
+        amount = console_in_out.input_positive_int_bucle("introduce the amount of the item:")
+        new_item.set_amount(amount)
+
+    return new_item    
+
 def event_listing_menue(places: dict[str, list[event.Event]]):
     
     mode_menue = SelectionMenue(
         "Select how to list the events",
         {
             "1": "select from place",
-            "2": "list all"
+            "2": "list all",
             "x": "go back"
-        }
+        },
         "press a [key] + [Enter↲] to select one of the options:"
     )
     mode = mode_menue.print_get_key()
 
     if(mode == "x"):
-        
+        return
+    if(mode == "1"):
 
-    places_names = list(places.keys)
-    
+        places_names_list = list(places.keys())
+        
+        places_names_list_dict = SelectionMenue.create_numerable_dict_from_list(places_names_list)
+        event_place_menue = SelectionMenue("Select a Place",
+                                           places_names_list_dict,
+                                           "introduce a number and press [Enter↲] to select one of the options:")
+        selected_place = event_place_menue.print_get_option()
+        if(places[selected_place] == [] or places[selected_place] == None):
+            print(f"no events were asigned to the place: {selected_place}")
+            print(" - - - - - - - - - - - - - - - - - -")
+            return
+        
+        console_in_out.print_event_list(places[selected_place])
+        return
+
+    elif(mode == "2"):
+        print("NOT IMPLEMENTED") #!implement it!!!!!!!!!!!!!  
 
 
 def event_creation_menue(actual_date: datetime, places_names_list: dict[str]): 

@@ -1,6 +1,19 @@
 from src.calendar.event_class.event import Event
 from datetime import datetime
 
+def input_positive_int_bucle(str_request):
+    while True:
+        print(str_request)
+        try: 
+            output = int(input())
+            if(output > 0):
+                return output
+            else:
+                print("Input was no valid because it most be a positive number")
+        except Exception as e:
+            print("Input was no valid because: ",e)
+
+
 def input_int_bucle(str_request):
 
     while True:
@@ -24,7 +37,7 @@ def print_event_list(event_list: list[Event]):
     print(" ")
     for event in event_list:
         print(f"event name: {event.get_name()}")
-        print(f" |- time: {event.get_starting_date()} - {event.get_ending_date}")
+        print(f" |- time: {event.get_starting_date()} - {event.get_ending_date()}")
         print(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
 
 def print_event_and_place_list(event_list: list[Event, str]):
