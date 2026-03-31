@@ -47,10 +47,10 @@ def item_creation_menue():
     new_item = item.Item(name, item_type, expendable)
 
     amount_menue = SelectionMenue( #this is clearly completly unnecesary
-        "Is it expendable?",
+        "Is it unique or it has an amount?",
         {
-            "1": "yes",
-            "0": "no"
+            "1": "it has an amounnt",
+            "0": "it is unique"
         },
         "press a [key] + [Enter↲] to select one of the options:"
     )

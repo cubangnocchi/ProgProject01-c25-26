@@ -26,7 +26,7 @@ class Inventory:
         return list(self.people.keys())
     
     def add_item(self, new_item: Item):
-        self.items[self.next_key.__str__()] = Item
+        self.items[self.next_key.__str__()] = new_item
         self.next_key += 1
 
     def add_human(self, new_human: Human):
@@ -39,7 +39,7 @@ class Inventory:
         converted_items = {}
         converted_humans = {}
 
-        for key in item_keys:
+        for key in item_keys:            
             converted_items[key] = self.items[key].convert_to_dictionary()
 
         for key in people_keys:

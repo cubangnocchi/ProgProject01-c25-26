@@ -1,7 +1,6 @@
 
 
 class Item:
-    
 
     def __init__(self, item_name: str, item_type: str, is_expendable: bool):
         self.name = item_name
@@ -34,6 +33,7 @@ class Item:
             is_expendable_as_int = 1
         
         output = {
+            "ITEM_NAME": self.name,
             "ITEM_TYPE": self.item_type,
             "IS_EXPENDABLE": is_expendable_as_int,
             "AMOUNT": self.amount
@@ -45,6 +45,7 @@ class Item:
     def convert_dictionary_to_item(dictionary: dict):
 
         item_type = dictionary["ITEM_TYPE"]
+        item_name = dictionary["ITEM_NAME"]
 
         is_expendable = False
         if(dictionary["IS_EXPENDABLE"] == "1"):
@@ -52,7 +53,7 @@ class Item:
 
         amount = int(dictionary["AMOUNT"])
 
-        output = Item(item_type, is_expendable)
+        output = Item(item_name, item_type, is_expendable)
         output.set_amount(amount)
 
         return output

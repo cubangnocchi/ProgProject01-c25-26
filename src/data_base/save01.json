@@ -5,9 +5,9 @@
             "Crew Quarters": {},
             "Fusion Reactor": {
                 "0": {
-                    "NAME": "evento01",
-                    "DATE_START": "2400-10-10 10:10:00",
-                    "DATE_END": "2401-10-10 10:10:00",
+                    "NAME": "Reactor Inspection",
+                    "DATE_START": "2350-01-02 12:00:00",
+                    "DATE_END": "2350-01-02 20:00:00",
                     "ITEM_KEYS": [],
                     "ITEM_AMOUNT": []
                 }

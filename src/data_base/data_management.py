@@ -18,14 +18,14 @@ def load_data(FILEPATH):
         print(f"Error loading the data base: {Exception}")
 
 def convert_json_to_objects(data):
-
-    try:
-        output = (Calendar.convert_dictionary_to_calendar(data["CALENDAR"]),
-                  Inventory.convert_dict_to_inventory(data["INVENTORY"]))
-        
-        return output
-    except:
+    if data == {}:
         return defoult_empty_data()
+        
+    output = (Calendar.convert_dictionary_to_calendar(data["CALENDAR"]),
+              Inventory.convert_dict_to_inventory(data["INVENTORY"]))
+        
+    return output
+    
     
 def defoult_empty_data():
     defoult_places = {
@@ -60,4 +60,5 @@ def convert_objects_to_json(calendar: Calendar, inventory: Inventory):
 def save_data(FILEPATH, data):
     with open(FILEPATH, 'w') as f:
         json.dump(data, f, indent=4)
+        
 
