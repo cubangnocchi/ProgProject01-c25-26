@@ -25,6 +25,13 @@ def main_menue():
 
     return mainmenue.print_get_key()
 
+def item_list_menue(item_dict: dict[str ,item.Item]):
+    
+    if(item_list == {} or item_list == None):
+        print("There are no items to list")
+    else:
+        console_in_out.print_item_list(item_dict)
+
 def item_creation_menue():
     print("----[item addition menue]----")
     print("introduce the item name: ")

@@ -35,7 +35,10 @@ def main_bucle():
             break
 
         if(option_selected == "1"):
-            menues.event_listing_menue(main_calendar.get_places_with_events())
+            list_events()
+
+        if(option_selected == "2"):
+            list_items()
 
         if(option_selected == "4"):
             add_item()
@@ -51,6 +54,16 @@ def add_event():
                                                                 main_calendar.get_places_names())
 
     main_calendar.insert_event_in_place(event_data[0], event_data[1])
+
+def list_events():
+    menues.event_listing_menue(main_calendar.get_places_with_events())
+    #aquí agregas opciones para modificar cosas
+
+def list_items():
+
+    menues.item_list_menue(main_inventory.get_items())
+    #aquí agregas opciones para modificar cosa
+
 
 
     #algo que recorra la data pa crear una instancia de evento y 

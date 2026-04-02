@@ -34,14 +34,18 @@ def multiple_input_int_bucle(str_request_list):
 
     return output
 
-def print_item_list(item_list: list[Item]):
+def print_item_list(item_dict: dict[str , Item]):
 
     print(" ")
-    for item in item_list:
-        print(f"item name: {item.get_name()}")
-        print(f"     type: {item.get_type}")
-        if(item.have_amount()):
-            print(f"   amount: {item.get_amount()}")
+    
+    key_list = list(item_dict.keys())
+
+    for key in key_list:
+        print(f"item name: {item_dict[key].get_name()}")
+        print(f"      key: {key}")
+        print(f"     type: {item_dict[key].get_type()}")
+        if(item_dict[key].have_amount()):
+            print(f"   amount: {item_dict[key].get_amount()}")
         print(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
 
 
