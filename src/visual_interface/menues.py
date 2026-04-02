@@ -27,7 +27,8 @@ def main_menue():
 
 def item_list_menue(item_dict: dict[str ,item.Item]):
     
-    if(item_list == {} or item_list == None):
+    if(item_dict == {} or item_dict == None):
+        print(" ")
         print("There are no items to list")
     else:
         console_in_out.print_item_list(item_dict)

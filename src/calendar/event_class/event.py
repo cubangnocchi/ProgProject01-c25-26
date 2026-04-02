@@ -84,26 +84,21 @@ class Event:
                        event_as_dictionary["ITEM_AMOUNT"],)
         
         return output
+    
+    @staticmethod
+    def event_type_list():
+        output = [
+            "undeterminated"
+            "maneuver",
+            "reparation",
+            "medic operation",
+            "minig operation",
+            "work meeting",
+            "comercial operation",
+            "defencive operation"
+        ]
 
-    # Parameter Construction Methods
-    '''
-    These methods are made to build parameters
-    '''
-
-    # Self Parameters Operations
-    '''
-    These methods are for operating with self instance parameters
-    '''
-
-    # Self Instance Operations
-    '''
-    These are self instance operations
-    '''
-
-    # Instance Operations
-    '''
-    These methods are for making possible operations between different instances
-    '''
+    
 
 
 

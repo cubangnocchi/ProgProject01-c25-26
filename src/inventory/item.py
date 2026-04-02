@@ -57,3 +57,18 @@ class Item:
         output.set_amount(amount)
 
         return output
+    
+    @staticmethod
+    def item_type_list():
+        output = [
+           #"",
+            "life suport",
+            "medic",
+            "tool",
+            "bio-hazard",
+            "radio-hazard",
+            "chemical hazard",
+            "weapon",
+        ]
+
+        return output

@@ -34,3 +34,39 @@ class Human:
         output = Human(name, speciality, day_born)
 
         return output
+    
+    @staticmethod
+    def human_type_dict():
+
+        status = [
+            "passenger",
+            "crew member",
+            "captain",
+            "first oficial",
+            "second oficial",
+            "mining oficial",
+            "defence oficial",
+            "soldier",
+            "corporation representative"
+        ]
+
+        specialization =[
+            "unspecialized",
+            "nuclear engineer",
+            "software engineer",
+            "weapons engineer",
+            "electric engineer",
+            "communications specialist",
+            "mining specialist",
+            "weapons specialist",
+            "reparation specialist"
+            "mechanic"
+            "first aid"
+            "medic"
+            "bureaucrat"
+        ]
+
+        output = {
+            "STATUS": status,
+            "SPECIALIZATION": specialization
+        }
