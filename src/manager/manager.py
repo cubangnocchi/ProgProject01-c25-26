@@ -37,10 +37,10 @@ def main_bucle():
         if(option_selected == "1"):
             menues.event_listing_menue(main_calendar.get_places_with_events())
 
-        if(option_selected == "2"):
+        if(option_selected == "4"):
             add_item()
 
-        if(option_selected == "3"):
+        if(option_selected == "5"):
             add_event()        
         
 def add_item():

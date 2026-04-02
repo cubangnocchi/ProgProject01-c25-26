@@ -1,4 +1,6 @@
 from src.calendar.event_class.event import Event
+from src.inventory.item import Item
+from src.inventory.human import Human
 from datetime import datetime
 
 def input_positive_int_bucle(str_request):
@@ -31,6 +33,17 @@ def multiple_input_int_bucle(str_request_list):
         output.append(input_int_bucle(str))
 
     return output
+
+def print_item_list(item_list: list[Item]):
+
+    print(" ")
+    for item in item_list:
+        print(f"item name: {item.get_name()}")
+        print(f"     type: {item.get_type}")
+        if(item.have_amount()):
+            print(f"   amount: {item.get_amount()}")
+        print(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
+
 
 def print_event_list(event_list: list[Event]):
     

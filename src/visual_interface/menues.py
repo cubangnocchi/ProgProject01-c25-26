@@ -13,9 +13,11 @@ def main_menue():
         {
            #" ": " ",
             "1": "list events",
-            "2": "add item to inventoory",
-            "3": "create event",
-            "4": "add crew member",
+            "2": "list items ",
+            "3": "list crew",
+            "4": "add item to inventoory",
+            "5": "create event",
+            "6": "add crew member",
             "x": "exit"
         },
         "press a [key] + [Enter↲] to select one of the options:"
