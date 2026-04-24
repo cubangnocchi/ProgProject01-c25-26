@@ -45,7 +45,7 @@ def item_creation_menue():
         "press a [key] + [Enter↲] to select one of the options:"
     )
     item_type = select_type_menue.print_get_option()
-    
+
     #! ahora implemento select
     # print("introduce the type: ")
     # item_type = input()
@@ -141,10 +141,40 @@ def event_creation_menue(actual_date: datetime, places_names_list: dict[str]):
 #! =================================================================================
 def inventory_selection_menue(available_from_inventory: inventory.Inventory):
     output_items = 0
-    output_people = people_selection_menue(available_from_inventory.get_people)
+    # output_people = people_selection_menue(available_from_inventory.get_people)
 
-def people_selection_menue(people_list):
-    print("implementando")
+def people_creation_menue(actual_date): #!add actual date pa que la fecha de nacimiento no de bateo
+
+    print("New crew memeber aboard e7")
+    print("pleace introduce his/her/something name")
+    name = input()
+ 
+    num_dict_speciality = SelectionMenue.create_numerable_dict_from_list(human.Human.get_specialization_list())
+    speciality_menue = SelectionMenue(
+        "select the speciality",
+        num_dict_speciality,
+        "introduce a number and press [Enter↲] to select one of the options:"
+    )
+    speciality = speciality_menue.print_get_option()
+
+    num_dict_status = SelectionMenue.create_numerable_dict_from_list(human.Human.get_status_list())
+    status_menue = SelectionMenue(
+        "select the status",
+        num_dict_status,
+        "introduce a number and press [Enter↲] to select one of the options:"
+    )
+    status = status_menue.print_get_option()
+    
+    print("Introduce the birthdate")
+    day_born = birthdate_creation_menue(actual_date) #!pon una restricción en plan que no haya nacido mañana
+    
+    output = human.Human(name,
+                         speciality,
+                         status,
+                         day_born
+                         )
+    
+    return output
 
 #! =================================================================================
 
@@ -176,6 +206,22 @@ def date_cration_menue(actual_date):
                 return output
             else:
                 print("[ERROR] the date cannot be defore the actual date")
+                print(f"actual date: [{actual_date}]")
+        except Exception as e:
+            print("the date was no valid because: ",e)
+
+def birthdate_creation_menue(actual_date):
+    while True:
+        print("}-------[date creation menue]--------{")
+        day = console_in_out.input_int_bucle("introduce the day:")
+        month = console_in_out.input_int_bucle("introduce the month:")
+        year = console_in_out.input_int_bucle("introduce the year:")
+        try:
+            output = datetime(year, month, day)
+            if(output < actual_date):
+                return output
+            else:
+                print("[ERROR] the date cannot be after the actual date")
                 print(f"actual date: [{actual_date}]")
         except Exception as e:
             print("the date was no valid because: ",e)

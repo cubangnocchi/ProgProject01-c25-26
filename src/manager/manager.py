@@ -44,7 +44,10 @@ def main_bucle():
             add_item()
 
         if(option_selected == "5"):
-            add_event()        
+            add_event()   
+
+        if(option_selected == "6"):
+            add_crew_member()     
         
 def add_item():
     main_inventory.add_item(menues.item_creation_menue())
@@ -54,6 +57,9 @@ def add_event():
                                                                 main_calendar.get_places_names())
 
     main_calendar.insert_event_in_place(event_data[0], event_data[1])
+
+def add_crew_member():
+    main_inventory.add_human(menues.people_creation_menue(main_calendar.get_actual_date()))
 
 def list_events():
     menues.event_listing_menue(main_calendar.get_places_with_events())
