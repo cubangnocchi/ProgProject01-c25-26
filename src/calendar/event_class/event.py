@@ -94,7 +94,7 @@ class Event:
         return output
     
     @staticmethod
-    def event_type_list():
+    def get_event_type_list():
         output = [
             "undeterminated"
             "maneuver",
@@ -105,6 +105,8 @@ class Event:
             "comercial operation",
             "defencive operation"
         ]
+
+        return output
 
     
 

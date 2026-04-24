@@ -135,7 +135,21 @@ def event_creation_menue(actual_date: datetime, places_names_list: dict[str]):
                                  "introduce a number and press [Enter↲] to select one of the options:")
     event_place = event_place_menue.print_get_option()
 
-    output = (event.Event(event_name, event_time, [], []), event_place)
+    num_dict_event_types = SelectionMenue.create_numerable_dict_from_list(event.Event.get_event_type_list())
+    event_type_menue = SelectionMenue(
+        "select the type of event",
+        num_dict_event_types,
+        "introduce a number and press [Enter↲] to select one of the options:"
+    )
+    event_type = event_type_menue.print_get_option()
+
+    output = (event.Event(event_name,
+                          event_time,
+                          [], 
+                          [], 
+                          [],
+                          event_type), 
+                          event_place)
 
     return output
 #! =================================================================================
