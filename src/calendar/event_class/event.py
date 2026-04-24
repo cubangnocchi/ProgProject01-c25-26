@@ -9,14 +9,18 @@ class Event:
 
     def __init__(self,
                  event_name: str,
-                 dates_interval: interval, 
-                 item_keys,
-                 item_amount):
+                 dates_interval: interval,
+                 people_keys: list[str], 
+                 item_keys: list[str],
+                 item_amount: list[int],
+                 event_type: str):
 
         self.event_name = event_name
         self.dates = dates_interval
+        self.people_keys = people_keys
         self.item_keys = item_keys
         self.item_amount = item_amount
+        self.event_type = event_type
 
     # Parameter validation methods
     '''
@@ -64,8 +68,10 @@ class Event:
             "NAME": self.event_name,
             "DATE_START": self.get_starting_date().__str__(),
             "DATE_END": self.get_ending_date().__str__(),
+            "PEOPLE_KEYS": self.people_keys,
             "ITEM_KEYS": self.item_keys,
-            "ITEM_AMOUNT": self.item_amount
+            "ITEM_AMOUNT": self.item_amount,
+            "EVENT_TYPE": self.event_type
         }
 
         return output
@@ -80,8 +86,10 @@ class Event:
 
         output = Event(event_as_dictionary["NAME"],
                        the_interval,
+                       event_as_dictionary["PEOPLE_KEYS"],
                        event_as_dictionary["ITEM_KEYS"],
-                       event_as_dictionary["ITEM_AMOUNT"],)
+                       event_as_dictionary["ITEM_AMOUNT"],
+                       event_as_dictionary["EVENT_TYPE"])
         
         return output
     

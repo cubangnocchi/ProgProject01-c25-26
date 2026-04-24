@@ -68,7 +68,11 @@ class Item:
             "bio-hazard",
             "radio-hazard",
             "chemical hazard",
+            "bio-hazard protection",
+            "radio-hazard protection",
+            "chemical hazard protection",
             "weapon",
+            "cargo",
             "none"
         ]
 
