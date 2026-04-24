@@ -108,6 +108,7 @@ def event_listing_menue(places: dict[str, list[event.Event]]):
         print("NOT IMPLEMENTED") #!implement it!!!!!!!!!!!!!  
 
 
+
 def event_creation_menue(actual_date: datetime, places_names_list: dict[str]): 
     event_data = []
     print("")
