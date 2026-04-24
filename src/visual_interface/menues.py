@@ -37,8 +37,18 @@ def item_creation_menue():
     print("----[item addition menue]----")
     print("introduce the item name: ")
     name = input()
-    print("introduce the type: ")
-    item_type = input()
+    
+    num_dict_of_types = SelectionMenue.create_numerable_dict_from_list(item.Item.item_type_list())
+    select_type_menue = SelectionMenue(
+        "select the type of the item",
+        num_dict_of_types,
+        "press a [key] + [Enter↲] to select one of the options:"
+    )
+    item_type = select_type_menue.print_get_option()
+    
+    #! ahora implemento select
+    # print("introduce the type: ")
+    # item_type = input()
     
     expendable_menue = SelectionMenue( #this is clearly completly unnecesary
         "Is it expendable?",

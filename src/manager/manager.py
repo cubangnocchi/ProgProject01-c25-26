@@ -61,7 +61,7 @@ def list_events():
 
 def list_items():
 
-    menues.item_list_menue(main_inventory.get_items)
+    menues.item_list_menue(main_inventory.get_items())
     #aquí agregas opciones para modificar cosa
 
 

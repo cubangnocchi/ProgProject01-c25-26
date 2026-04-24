@@ -22,8 +22,15 @@
         "INITIAL-DATE": "2350-01-01 00:00:00"
     },
     "INVENTORY": {
-        "ITEMS": {},
+        "ITEMS": {
+            "0": {
+                "ITEM_NAME": "U235 bar",
+                "ITEM_TYPE": "radio-hazard",
+                "IS_EXPENDABLE": 1,
+                "AMOUNT": 200
+            }
+        },
         "PEOPLE": {},
-        "NEXT_KEY": "0"
+        "NEXT_KEY": "1"
     }
 }

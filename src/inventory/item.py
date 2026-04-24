@@ -69,6 +69,7 @@ class Item:
             "radio-hazard",
             "chemical hazard",
             "weapon",
+            "none"
         ]
 
         return output
