@@ -6,7 +6,7 @@ from src.visual_interface.selection_menue import SelectionMenue
 from src.calendar.event_class import event, interval 
 from src.inventory import inventory, human, item
 
-def main_menue():
+def main_menue() -> str:
     
     mainmenue = SelectionMenue(
         "MAIN MENUE",
@@ -18,7 +18,7 @@ def main_menue():
             "4": "add item to inventoory",
             "5": "create event",
             "6": "add crew member",
-            "x": "exit"
+            "x": "exit",
         },
         "press a [key] + [Enter↲] to select one of the options:"
     )
@@ -239,10 +239,4 @@ def birthdate_creation_menue(actual_date):
                 print(f"actual date: [{actual_date}]")
         except Exception as e:
             print("the date was no valid because: ",e)
-        
-        
-
-
-
-
-    
+            
