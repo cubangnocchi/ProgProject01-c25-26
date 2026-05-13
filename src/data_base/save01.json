@@ -1,29 +1,21 @@
 {
     "CALENDAR": {
-        "PLACES": {
-            "Control Bridge": {},
-            "Crew Quarters": {},
-            "Fusion Reactor": {
-                "0": {
-                    "NAME": "Reactor Inspection",
-                    "DATE_START": "2350-01-02 12:00:00",
-                    "DATE_END": "2350-01-02 20:00:00",
-                    "PEOPLE_KEYS": [],
-                    "ITEM_KEYS": [],
-                    "ITEM_AMOUNT": [],
-                    "EVENT_TYPE": "reparation"
-                }
+        "EVENTS": {
+            "0": {
+                "NAME": "Reactor Inspection",
+                "DATE_START": "2350-01-02 12:00:00",
+                "DATE_END": "2350-01-02 20:00:00",
+                "PEOPLE_KEYS": [],
+                "ITEM_KEYS": [],
+                "ITEM_AMOUNT": [],
+                "EVENT_PLACE": "Fusion Reactor",
+                "EVENT_TYPE": "reparation"
+            }
             },
-            "Mining Bay": {},
-            "Cargo Bay": {},
-            "Laboratory": {},
-            "Services Room": {},
-            "Data Center": {},
-            "Ship Exterior": {}
-        },
         "INITIAL-DATE": "2350-01-01 00:00:00"
     },
     "INVENTORY": {
+        "PLACES": ["Control Bridge", "Crew Quarters", "Fusion Reactor", "Mining Bay","Cargo Bay", "Laboratory", "Services Room", "Data Center", "Ship Exterior"],
         "ITEMS": {
             "0": {
                 "ITEM_NAME": "U235 bar",

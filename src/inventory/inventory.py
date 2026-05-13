@@ -2,11 +2,15 @@ from src.inventory.human import Human
 from src.inventory.item import Item
 
 class Inventory:
-    def __init__(self, items: dict[str, Item], people: dict[str, Human], next_key: int):
+    def __init__(self, places: list[str], items: dict[str, Item], people: dict[str, Human], next_key: int):
+        self.places = places
         self.items = items
         self.people = people
         self.next_key = next_key #!each time an item or something is added, this goes ++ 
     
+    def get_places_list(self):
+        return self.places
+
     def get_items(self):
         return self.items
     
@@ -46,6 +50,7 @@ class Inventory:
             converted_humans[key] = self.people[key].convert_to_dictionary()
 
         output = {
+            "PLACES": self.places,
             "ITEMS": converted_items,
             "PEOPLE": converted_humans,
             "NEXT_KEY": self.next_key.__str__()
@@ -55,7 +60,8 @@ class Inventory:
     
     @staticmethod
     def convert_dict_to_inventory(inventory_dict: dict[str, dict]):
-
+        
+        places = list[str](inventory_dict["PLACES"])
         next_key = int(inventory_dict["NEXT_KEY"])
         
         items_as_dict = inventory_dict["ITEMS"]

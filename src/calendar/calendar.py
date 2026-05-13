@@ -6,37 +6,30 @@ class Calendar:
 
     #-------<<<[constructor]>>>-------
 
-    def __init__(self, places: dict[str, list[Event]], initial_date: datetime):
-        self.places = places
+    def __init__(self, event_list: list[Event], initial_date: datetime):
+        self.event_list = event_list
         self.actual_date = initial_date
 
     #-------<<<[get parametrs]>>>-------
 
-    def get_places_with_events (self):
-        return self.places
-    
-    def get_places_names(self):
-        return list(self.places.keys())
-    
-    def get_event_list_from_place (self, place_key):
-        return self.places(place_key)
-    
+    def get_event_list(self) -> list[Event]:
+        return self.event_list
+
     def get_actual_date(self) -> datetime:
         return self.actual_date
     
     
     #-------<<<[change parameters]>>>-------
 
-    def insert_event_in_place(self, new_event: Event, place_key: str):
-
-        event_list = self.places[place_key]
+    def insert_event_in_place(self, new_event: Event):
+        
         new_event_start_date = new_event.get_starting_date()
 
-        if event_list == None:
-            self.places[place_key].append(new_event)
+        if self.event_list == None:
+            self.event_list.append(new_event)
         
         else:
-            self.places[place_key] = Calendar.event_binary_insert(self.places[place_key], new_event)
+            self.event_list = Calendar.event_binary_insert(self.places[place_key], new_event)
     
     #-------<<<[json convertion methods]>>>-------
 
