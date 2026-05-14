@@ -29,40 +29,28 @@ class Calendar:
             self.event_list.append(new_event)
         
         else:
-            self.event_list = Calendar.event_binary_insert(self.places[place_key], new_event)
+            self.event_list = Calendar.event_binary_insert(self.event_list, new_event)
     
     #-------<<<[json convertion methods]>>>-------
 
     def convert_to_dict(self):
         
         output = {
-            "PLACES": {},
+            "EVENTS": Calendar.event_list_to_dictionary(self.event_list),
             "INITIAL-DATE": self.actual_date.__str__()
         }
         
-        dic_places = {}
-        places_names_list = list(self.places.keys())
-
-        for place_name in places_names_list:
-            dic_places[place_name] = Calendar.event_list_to_dictionary(self.places[place_name])
-
-        output["PLACES"] = dic_places
-
         return output
     
     @staticmethod
     def convert_dictionary_to_calendar(dictionary: dict):
 
-        PLACES_raw = dictionary["PLACES"]
+        EVENTS_raw: dict[dict[str]] = dictionary["EVENTS"]
         
-        places_names_list = list(PLACES_raw.keys())
-        PLACES_processed = {}
-
-        for place_name in places_names_list:
-            PLACES_processed[place_name] = Calendar.dictionary_to_event_list(PLACES_raw[place_name])
+        EVENTS_processed = Calendar.dictionary_to_event_list(EVENTS_raw)
         
 
-        output = Calendar(PLACES_processed, datetime.strptime(dictionary["INITIAL-DATE"], '%Y-%m-%d %H:%M:%S'))
+        output = Calendar(EVENTS_processed, datetime.strptime(dictionary["INITIAL-DATE"], '%Y-%m-%d %H:%M:%S'))
 
         return output
 

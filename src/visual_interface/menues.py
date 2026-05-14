@@ -84,6 +84,7 @@ def item_creation_menue():
 
 def event_listing_menue(places: dict[str, list[event.Event]]):
     
+    #! ahora toddo esto no work ............................
     mode_menue = SelectionMenue(
         "Select how to list the events",
         {
@@ -119,7 +120,7 @@ def event_listing_menue(places: dict[str, list[event.Event]]):
 
 
 
-def event_creation_menue(actual_date: datetime, places_names_list: dict[str]): 
+def event_creation_menue(actual_date: datetime, places_names_list: list[str]): 
     event_data = []
     print("")
     print("}-------[event creation menue]--------{")
@@ -148,8 +149,8 @@ def event_creation_menue(actual_date: datetime, places_names_list: dict[str]):
                           [], 
                           [], 
                           [],
-                          event_type), 
-                          event_place)
+                          event_type,
+                          event_place))
 
     return output
 #! =================================================================================

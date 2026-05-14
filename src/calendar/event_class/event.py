@@ -13,7 +13,8 @@ class Event:
                  people_keys: list[str], 
                  item_keys: list[str],
                  item_amount: list[int],
-                 event_type: str):
+                 event_type: str,
+                 event_place: str):
 
         self.event_name = event_name
         self.dates = dates_interval
@@ -21,6 +22,7 @@ class Event:
         self.item_keys = item_keys
         self.item_amount = item_amount
         self.event_type = event_type
+        self.event_place = event_place
 
     # Parameter validation methods
     '''
@@ -71,7 +73,8 @@ class Event:
             "PEOPLE_KEYS": self.people_keys,
             "ITEM_KEYS": self.item_keys,
             "ITEM_AMOUNT": self.item_amount,
-            "EVENT_TYPE": self.event_type
+            "EVENT_TYPE": self.event_type,
+            "EVENT_PLACE": self.event_place
         }
 
         return output
@@ -89,7 +92,8 @@ class Event:
                        event_as_dictionary["PEOPLE_KEYS"],
                        event_as_dictionary["ITEM_KEYS"],
                        event_as_dictionary["ITEM_AMOUNT"],
-                       event_as_dictionary["EVENT_TYPE"])
+                       event_as_dictionary["EVENT_TYPE"],
+                       event_as_dictionary["EVENT_PLACE"])
         
         return output
     
