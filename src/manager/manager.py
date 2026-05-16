@@ -53,10 +53,10 @@ def add_item():
     main_inventory.add_item(menues.item_creation_menue())
 
 def add_event():
-    event_data: tuple[Event, str] = menues.event_creation_menue(main_calendar.get_actual_date(), 
-                                                                main_calendar.get_places_names())
+    event_data = menues.event_creation_menue(main_calendar.get_actual_date(), 
+                                             main_inventory.get_places_list())
 
-    main_calendar.insert_event_in_place(event_data[0], event_data[1])
+    main_calendar.insert_event_in_place(event_data)
 
 def add_crew_member():
     main_inventory.add_human(menues.people_creation_menue(main_calendar.get_actual_date()))

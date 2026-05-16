@@ -79,7 +79,7 @@ class Inventory:
         for key in people_keys:
             converted_peopple[key] = Human.convert_from_dictionary_to_human(humans_as_dict[key])
 
-        output = Inventory(converted_items, converted_peopple, next_key)
+        output = Inventory(places, converted_items, converted_peopple, next_key)
 
         return output
 

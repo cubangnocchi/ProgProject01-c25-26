@@ -28,7 +28,7 @@ def convert_json_to_objects(data):
     
     
 def defoult_empty_data():
-    defoult_places = ["Control Bridge", "Crew Quarters", "Fusion Reactor", "Mining Bay","Cargo Bay", "Laboratory", "Services Room", "Data Center", "Ship Exterior"],
+    defoult_places = ["Control Bridge", "Crew Quarters", "Fusion Reactor", "Mining Bay","Cargo Bay", "Laboratory", "Services Room", "Data Center", "Ship Exterior"]
         
     defoult_starting_date = datetime(2350, 1, 1)
 
