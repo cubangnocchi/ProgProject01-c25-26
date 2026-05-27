@@ -155,42 +155,12 @@ def event_creation_menue(calendar: Calendar, inventory: Inventory):
     return output
     
 #!-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+--+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+--+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-++--+--++
-def old_event_creation_menue(actual_date: datetime, places_names_list: list[str]): 
-    
-    print("")
-    print("}-------[event creation menue]--------{")
-    
-    print("Introduce the name of the event")
-    event_name = input()
-
-    event_time = interval_creation_menue(actual_date)
-    
-    places_names_list_dict = SelectionMenue.create_numerable_dict_from_list(places_names_list)
-    event_place_menue = SelectionMenue("Select a Place",
-                                 places_names_list_dict,
-                                 "introduce a number and press [Enter↲] to select one of the options:")
-    event_place = event_place_menue.print_get_option()
-
-    num_dict_event_types = SelectionMenue.create_numerable_dict_from_list(event.Event.get_event_type_list())
-    event_type_menue = SelectionMenue(
-        "select the type of event",
-        num_dict_event_types,
-        "introduce a number and press [Enter↲] to select one of the options:"
-    )
-    event_type = event_type_menue.print_get_option()
-
-    output = (event.Event(event_name,
-                          event_time,
-                          [], 
-                          [], 
-                          [],
-                          event_type,
-                          event_place))
-
-    return output
 #! =================================================================================
+
 def inventory_selection_menue(available_from_inventory: inventory.Inventory):
-    output_items = 0
+    
+    return 0
+    
     # output_people = people_selection_menue(available_from_inventory.get_people)
 
 def people_creation_menue(actual_date): #!add actual date pa que la fecha de nacimiento no de bateo

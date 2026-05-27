@@ -44,6 +44,27 @@ class SelectionMenue:
             else:
                 return self.options[selected_option]
     
+    def get_key(self):
+
+        option_keys_list = list(self.options.keys())
+        selected_option = input()
+
+        if(not (selected_option in option_keys_list)):
+            print("ERROR: option not available, try again:")
+            print()
+        else:
+            return selected_option
+        
+    def get_option(self):
+        option_keys_list = list(self.options.keys())
+        selected_option = input()
+
+        if(not (selected_option in option_keys_list)):
+            print("ERROR: option not available, try again:")
+            print()
+        else:
+            return self.options[selected_option]
+
     @staticmethod
     def create_numerable_dict_from_list(the_list: list[str]):
         output_dictionary = {}
