@@ -4,6 +4,8 @@ from src.visual_interface import console_in_out
 from src.visual_interface.selection_menue import SelectionMenue
 
 from src.calendar.event_class import event, interval 
+from src.calendar.calendar import Calendar
+from src.inventory.inventory import Inventory
 from src.inventory import inventory, human, item
 
 def main_menue() -> str:
@@ -24,7 +26,7 @@ def main_menue() -> str:
     )
 
     return mainmenue.print_get_key()
-
+    
 def item_list_menue(item_dict: dict[str ,item.Item]):
     
     if(item_dict == {} or item_dict == None):
@@ -118,10 +120,43 @@ def event_listing_menue(places: dict[str, list[event.Event]]):
     elif(mode == "2"):
         print("NOT IMPLEMENTED") #!implement it!!!!!!!!!!!!!  
 
+def event_creation_menue(calendar: Calendar, inventory: Inventory):
 
+    print("")
+    print("}-------[event creation menue]--------{")
+    
+    print("Introduce the name of the event")
+    event_name = input()
 
-def event_creation_menue(actual_date: datetime, places_names_list: list[str]): 
-    event_data = []
+    event_time = interval_creation_menue(calendar.get_actual_date())
+    
+    places_names_list_dict = SelectionMenue.create_numerable_dict_from_list(inventory.get_places_list())
+    event_place_menue = SelectionMenue("Select a Place",
+                                 places_names_list_dict,
+                                 "introduce a number and press [Enter↲] to select one of the options:")
+    event_place = event_place_menue.print_get_option()
+
+    num_dict_event_types = SelectionMenue.create_numerable_dict_from_list(event.Event.get_event_type_list())
+    event_type_menue = SelectionMenue(
+        "select the type of event",
+        num_dict_event_types,
+        "introduce a number and press [Enter↲] to select one of the options:"
+    )
+    event_type = event_type_menue.print_get_option()
+
+    output = (event.Event(event_name,
+                          event_time,
+                          [], 
+                          [], 
+                          [],
+                          event_type,
+                          event_place))
+
+    return output
+    
+#!-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+--+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+--+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-++--+--++
+def old_event_creation_menue(actual_date: datetime, places_names_list: list[str]): 
+    
     print("")
     print("}-------[event creation menue]--------{")
     

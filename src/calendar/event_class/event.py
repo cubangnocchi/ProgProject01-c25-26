@@ -100,7 +100,7 @@ class Event:
     @staticmethod
     def get_event_type_list():
         output = [
-            "undeterminated"
+            "undeterminated",
             "maneuver",
             "reparation",
             "medic operation",
