@@ -1,5 +1,4 @@
 
-
 class Item:
 
     def __init__(self, item_name: str, item_type: str, is_expendable: bool):

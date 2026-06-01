@@ -75,3 +75,17 @@ def print_event_and_place_list(event_list: list[Event, str]):
 def error_output(error):
     print(error)
 
+def print_item_dict(event_dict: dict[str, Item]):
+
+    key_list = list(event_dict.keys())
+
+    for key in key_list:
+        item_i = event_dict[key]
+        print(f"{key} - name: {item_i.get_name()}")
+        print(f" |- type {item_i.get_type()}")
+        amount = item_i.get_amount()
+        if(amount != -1):
+            print(f" |- amount: {amount}")
+        else:
+            print(f" |- amounnt: unic")
+        print()
