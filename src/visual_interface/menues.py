@@ -159,17 +159,40 @@ def event_creation_menue(calendar: Calendar, inventory: Inventory):
 #!-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+--+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+--+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-++--+--++
 #! =================================================================================
 
-def inventory_selection_menue(items: dict[str, item.Item]):
+def items_selection_menue(items: dict[str, item.Item]):
     
     print("[ITEM SELECTION MENUE]")
     console_in_out.print_item_dict(items)
-    
+
+    menueble_dict_items = SelectionMenue.item_dict_to_menueable_dict(items)
     select_item_menue = SelectionMenue(
         "item_selection_menue",
-
+        menueble_dict_items,
+        "select"
     )
-    return 0
+    output = select_item_menue.get_key()
     
+    #! FALTA el amount... e facil
+    return output
+    
+def items_selection_menue_bucle(items: dict[str, item.Item]):
+    output = []
+    while(True):
+        key_and_amount = items_selection_menue(items)
+        output.append(key_and_amount)
+        more_or_exit_menue = SelectionMenue(
+            "Do you want to...",
+            {
+                "1": "add one more item?",
+                "x": "end the item selection?"
+            },
+            "introduce a key and press [Enter↲] to select one of the options:"
+        )
+        selection = more_or_exit_menue.print_get_key()
+        if(selection == "x"):
+            break
+
+    return output
     # output_people = people_selection_menue(available_from_inventory.get_people)
 
 def people_creation_menue(actual_date): #!add actual date pa que la fecha de nacimiento no de bateo
