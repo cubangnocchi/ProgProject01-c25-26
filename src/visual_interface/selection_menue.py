@@ -1,3 +1,5 @@
+from src.inventory.item import Item
+
 class SelectionMenue:
     def __init__(self, header: str, options: dict[str, str], instruction: str):
         self.header = header
@@ -75,9 +77,13 @@ class SelectionMenue:
 
         return output_dictionary
 
-            
+    @staticmethod
+    def item_dict_to_menueable_dict(items: dict[str, Item]):
+        key_list = list(items.keys())
+        output = {}
+        for key in key_list:
+            output[key] = items[key].get_name()
 
-            
-        
+        return output 
         
         

@@ -144,6 +144,8 @@ def event_creation_menue(calendar: Calendar, inventory: Inventory):
     )
     event_type = event_type_menue.print_get_option()
 
+    #item asignation: item selection menue
+
     output = (event.Event(event_name,
                           event_time,
                           [], 
@@ -157,8 +159,15 @@ def event_creation_menue(calendar: Calendar, inventory: Inventory):
 #!-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+--+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+--+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-++--+--++
 #! =================================================================================
 
-def inventory_selection_menue(available_from_inventory: inventory.Inventory):
+def inventory_selection_menue(items: dict[str, item.Item]):
     
+    print("[ITEM SELECTION MENUE]")
+    console_in_out.print_item_dict(items)
+    
+    select_item_menue = SelectionMenue(
+        "item_selection_menue",
+
+    )
     return 0
     
     # output_people = people_selection_menue(available_from_inventory.get_people)
