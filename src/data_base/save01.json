@@ -26,8 +26,21 @@
             "Data Center",
             "Ship Exterior"
         ],
-        "ITEMS": {},
+        "ITEMS": {
+            "0": {
+                "ITEM_NAME": "u235",
+                "ITEM_TYPE": "radio-hazard",
+                "IS_EXPENDABLE": 0,
+                "AMOUNT": 200
+            },
+            "1": {
+                "ITEM_NAME": "space suit",
+                "ITEM_TYPE": "vacuum protection",
+                "IS_EXPENDABLE": 0,
+                "AMOUNT": 56
+            }
+        },
         "PEOPLE": {},
-        "NEXT_KEY": "0"
+        "NEXT_KEY": "2"
     }
 }

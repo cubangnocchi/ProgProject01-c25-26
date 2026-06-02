@@ -87,5 +87,5 @@ def print_item_dict(event_dict: dict[str, Item]):
         if(amount != -1):
             print(f" |- amount: {amount}")
         else:
-            print(f" |- amounnt: unic")
+            print(f" |- amounnt: unique")
         print()

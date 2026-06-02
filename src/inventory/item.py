@@ -70,6 +70,7 @@ class Item:
             "bio-hazard protection",
             "radio-hazard protection",
             "chemical hazard protection",
+            "vacuum protection",
             "weapon",
             "cargo",
             "none"

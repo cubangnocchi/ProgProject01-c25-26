@@ -33,7 +33,7 @@ def item_list_menue(item_dict: dict[str ,item.Item]):
         print(" ")
         print("There are no items to list")
     else:
-        console_in_out.print_item_list(item_dict)
+        console_in_out.print_item_dict(item_dict)
 
 def item_creation_menue():
     print("----[item addition menue]----")
