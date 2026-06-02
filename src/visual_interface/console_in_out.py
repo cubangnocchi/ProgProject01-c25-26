@@ -16,13 +16,29 @@ def input_positive_int_bucle(str_request):
             print("Input was no valid because: ",e)
 
 
-def input_int_bucle(str_request):
+def input_int_bucle(str_request: str):
 
     while True:
         print(str_request)
         try: 
             output = int(input())
             return output
+        except Exception as e:
+            print("Input was no valid because: ",e)
+
+def input_int_inrange_bucle(str_request: str, 
+                            maxvalue: int, 
+                            minvalue: int):
+    
+    while True:
+        print(str_request)
+        try: 
+            output = int(input())
+            if((minvalue <= output) and 
+               (output <= maxvalue)):
+                return output
+            else:
+                print(f"Input out of range: {minvalue} < input < {maxvalue}")
         except Exception as e:
             print("Input was no valid because: ",e)
 

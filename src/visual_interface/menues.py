@@ -144,13 +144,15 @@ def event_creation_menue(calendar: Calendar, inventory: Inventory):
     )
     event_type = event_type_menue.print_get_option()
 
-    #item asignation: item selection menue
+    item_selection_input = items_selection_menue_bucle(inventory.get_items())
+    item_keys_list = item_selection_input[0]
+    item_amount_list = item_selection_input[1]
 
     output = (event.Event(event_name,
                           event_time,
                           [], 
-                          [], 
-                          [],
+                          item_keys_list, 
+                          item_amount_list, #!revsa lo de convertir en el json que no eso eh?
                           event_type,
                           event_place))
 
@@ -159,7 +161,7 @@ def event_creation_menue(calendar: Calendar, inventory: Inventory):
 #!-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+--+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+--+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-++--+--++
 #! =================================================================================
 
-def items_selection_menue(items: dict[str, item.Item]):
+def items_selection_menue(items: dict[str, item.Item]) -> tuple[str, int]: 
     
     print("[ITEM SELECTION MENUE]")
     console_in_out.print_item_dict(items)
@@ -170,16 +172,26 @@ def items_selection_menue(items: dict[str, item.Item]):
         menueble_dict_items,
         "select"
     )
-    output = select_item_menue.get_key()
+    item_key = select_item_menue.get_key()
     
-    #! FALTA el amount... e facil
-    return output
+    available_amount = items[item_key].get_amount()
+    if(available_amount == -1):
+        return (item_key, -1)
     
-def items_selection_menue_bucle(items: dict[str, item.Item]):
-    output = []
+    selected_amount = console_in_out.input_int_inrange_bucle(
+        "introduce the amount you want to get of the item",
+        available_amount,
+        1
+    )
+    
+    return (item_key, selected_amount)
+    
+def items_selection_menue_bucle(items: dict[str, item.Item]) -> tuple[list[str],list[int]]:
+    inputs: list[tuple[str,int]]= []
+    output = ([],[])
     while(True):
         key_and_amount = items_selection_menue(items)
-        output.append(key_and_amount)
+        inputs.append(key_and_amount)
         more_or_exit_menue = SelectionMenue(
             "Do you want to...",
             {
@@ -191,6 +203,13 @@ def items_selection_menue_bucle(items: dict[str, item.Item]):
         selection = more_or_exit_menue.print_get_key()
         if(selection == "x"):
             break
+    
+    key_output = []
+    amount_output = []
+    for element in inputs:
+        key_output.append(element[0])
+        amount_output.append(element[1])
+    output = (key_output, amount_output)
 
     return output
     # output_people = people_selection_menue(available_from_inventory.get_people)
