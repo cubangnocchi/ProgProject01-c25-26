@@ -172,6 +172,7 @@ def items_selection_menue(items: dict[str, item.Item]) -> tuple[str, int]:
         menueble_dict_items,
         "select"
     )
+    print("introduce a number and press [Enter↲] to select one of the options:")
     item_key = select_item_menue.get_key()
     
     available_amount = items[item_key].get_amount()
@@ -212,8 +213,21 @@ def items_selection_menue_bucle(items: dict[str, item.Item]) -> tuple[list[str],
     output = (key_output, amount_output)
 
     return output
-    # output_people = people_selection_menue(available_from_inventory.get_people)
 
+def people_selection_menue(people: dict[str, human.Human]) -> str:
+    print("[PERSONNEL SELECTION MENUE]")
+    console_in_out.print_item_dict(items)
+
+    menueble_dict_people = SelectionMenue.human_dict_to_menueable_dict(people)
+    select_item_menue = SelectionMenue(
+        "people_selection_menue",
+        menueble_dict_items,
+        "select"
+    )
+    print("introduce a number and press [Enter↲] to select one of the options:")
+    item_key = select_item_menue.get_key()
+
+    # output_people = people_selection_menue(available_from_inventory.get_people)
 def people_creation_menue(actual_date): #!add actual date pa que la fecha de nacimiento no de bateo
 
     print("New crew memeber aboard e7")
