@@ -78,16 +78,6 @@ def print_event_list(event_list: list[Event]):
         print("     - por implementar")
         print(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
 
-def print_event_and_place_list(event_list: list[Event, str]):
-    
-    print(" ")
-    for selected in event_list:
-        event = selected[0]
-        place = selected[1]
-        print(f"place: {place} event name: {event.get_name()}")
-        print(f" |- time: {event.get_starting_date()} - {event.get_ending_date}")
-        print(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
-
 def error_output(error):
     print(error)
 
@@ -104,4 +94,16 @@ def print_item_dict(event_dict: dict[str, Item]):
             print(f" |- amount: {amount}")
         else:
             print(f" |- amounnt: unique")
-        print()
+        print("")
+
+def print_people_dict(people_dict: dict[str, Human], actual_date: datetime):
+
+    key_list = list(people_dict.keys())
+
+    for key in key_list:
+        human_i = people_dict[key]
+        print(f"{key} - name: {human_i.get_name()}")
+        print(f" |- age: {human_i.get_age(actual_date)}")
+        print(f" |- speciality: {human_i.get_speciality}")
+        print(f" |- status: {human_i.get_status}")
+        print("")

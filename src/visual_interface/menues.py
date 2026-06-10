@@ -214,11 +214,11 @@ def items_selection_menue_bucle(items: dict[str, item.Item]) -> tuple[list[str],
 
     return output
 
-def people_selection_menue(people: dict[str, human.Human]) -> str:
+def people_selection_menue(people: dict[str, human.Human], actualdate: datetime) -> str:
     print("[PERSONNEL SELECTION MENUE]")
     console_in_out.print_item_dict(people)
 
-    menueble_dict_people = SelectionMenue.human_dict_to_menueable_dict(people)
+    menueble_dict_people = SelectionMenue.human_dict_to_menueable_dict(people, actualdate)
     select_human_menue = SelectionMenue(
         "people_selection_menue",
         menueble_dict_people,
@@ -228,6 +228,28 @@ def people_selection_menue(people: dict[str, human.Human]) -> str:
     human_key = select_human_menue.get_key()
 
     return human_key
+
+def people_selection_menue_bucle(people: dict[str, human.Human], actualdate: datetime) -> list[str]:
+    output = []
+    
+    more_or_exit_menue = SelectionMenue(
+        "Do you want to...",
+        {
+            "1": "add one more crew member?",
+            "x": "end the crew selection?"
+        },
+        "introduce a key and press [Enter↲] to select one of the options:"
+    )
+    
+    while(True):
+        key = people_selection_menue(people)
+        output.append(key)
+
+        selection = more_or_exit_menue.print_get_key()
+        if(selection == "x"):
+            break
+    
+    return output
 
     # output_people = people_selection_menue(available_from_inventory.get_people)
 def people_creation_menue(actual_date): #!add actual date pa que la fecha de nacimiento no de bateo

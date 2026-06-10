@@ -21,9 +21,14 @@ class Human:
     def get_status(self):
         return self.status
 
-    def get_age(self, actualdate):
-        return self.day_born - actualdate #!revisaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaar
-    
+    def get_age(self, actualdate: datetime):
+        age = actualdate.year - self.day_born.year
+
+        #just in case this year your birthday hasn't ocurred yet
+        if((actualdate.month, actualdate.day)<(self.day_born.month, self.day_born.day)):
+            age -= 1
+
+        return age
     def convert_to_dictionary(self):
         
         output = {
