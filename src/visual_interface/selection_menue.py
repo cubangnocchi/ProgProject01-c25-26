@@ -1,4 +1,5 @@
 from src.inventory.item import Item
+from src.inventory.human import Human
 
 class SelectionMenue:
     def __init__(self, header: str, options: dict[str, str], instruction: str):
@@ -86,4 +87,12 @@ class SelectionMenue:
 
         return output 
         
+    @staticmethod
+    def human_dict_to_menueable_dict(people: dict[str, Human]):
+        key_list = list(people.keys())
+        output = {}
+        for key in key_list:
+            output[key] = people[key].get_name()
+
+        return output 
         
