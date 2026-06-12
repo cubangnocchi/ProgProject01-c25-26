@@ -68,7 +68,7 @@ def add_crew_member():
     save_data()
     
 def list_events():
-    menues.event_listing_menue(main_calendar.get_places_with_events())
+    menues.event_listing_menue(main_calendar.get_event_list())
     #aquí agregas opciones para modificar cosas
 
 def list_items():

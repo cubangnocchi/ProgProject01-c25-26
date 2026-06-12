@@ -84,10 +84,10 @@ def item_creation_menue():
 
     return new_item    
 
-def event_listing_menue(places: dict[str, list[event.Event]]):
+def event_listing_menue(event_list: list[event.Event]):
     
-    #! ahora toddo esto no work ............................
-    print("implement it...")
+    console_in_out.print_event_list(event_list)
+    #agregar lo de ver detalles y editar
 
 def event_creation_menue(calendar: Calendar, inventory: Inventory):
 

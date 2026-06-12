@@ -62,6 +62,9 @@ class Event:
     def get_name(self):
         return self.event_name
     
+    def get_people_keys(self):
+        return self.people_keys
+    
     # Data format method
 
     def get_as_dictionary(self):

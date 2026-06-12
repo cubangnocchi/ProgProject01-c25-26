@@ -72,10 +72,7 @@ def print_event_list(event_list: list[Event]):
     for event in event_list:
         print(f"event name: {event.get_name()}")
         print(f" |- time: {event.get_starting_date()} - {event.get_ending_date()}")
-        print(f" |- items:")
-        print("     - tengo que listarlos acá + cantidad")
-        print("  !- crew members asigned")
-        print("     - por implementar")
+        print(f" |- amount of people: {len(event.get_people_keys())}")
         print(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
 
 def error_output(error):
