@@ -2,30 +2,23 @@
     "CALENDAR": {
         "EVENTS": {
             "0": {
-                "NAME": "Reactor Inspection",
-                "DATE_START": "2350-10-10 08:30:00",
-                "DATE_END": "2350-10-10 20:00:00",
-                "PEOPLE_KEYS": [],
-                "ITEM_KEYS": [],
-                "ITEM_AMOUNT": [],
-                "EVENT_TYPE": "reparation",
-                "EVENT_PLACE": "Fusion Reactor"
-            },
-            "1": {
-                "NAME": "hull inspection",
-                "DATE_START": "2351-05-20 10:00:00",
-                "DATE_END": "2351-05-20 12:00:00",
-                "PEOPLE_KEYS": [],
+                "NAME": "Reactor rutinary inspection and refueling",
+                "DATE_START": "2350-01-02 07:30:00",
+                "DATE_END": "2350-01-02 18:00:00",
+                "PEOPLE_KEYS": [
+                    "5",
+                    "2"
+                ],
                 "ITEM_KEYS": [
-                    "1",
-                    "0"
+                    "0",
+                    "3"
                 ],
                 "ITEM_AMOUNT": [
-                    2,
-                    1
+                    4,
+                    2
                 ],
                 "EVENT_TYPE": "reparation",
-                "EVENT_PLACE": "Ship Exterior"
+                "EVENT_PLACE": "Nuclear Reactor"
             }
         },
         "INITIAL-DATE": "2350-01-01 00:00:00"
@@ -34,7 +27,7 @@
         "PLACES": [
             "Control Bridge",
             "Crew Quarters",
-            "Fusion Reactor",
+            "Nuclear Reactor",
             "Mining Bay",
             "Cargo Bay",
             "Laboratory",
@@ -58,7 +51,7 @@
             "3": {
                 "ITEM_NAME": "nutrient blocks",
                 "ITEM_TYPE": "life suport",
-                "IS_EXPENDABLE": 1,
+                "IS_EXPENDABLE": 0,
                 "AMOUNT": 5000
             }
         },
@@ -74,8 +67,14 @@
                 "SPECIALITY": "mining specialist",
                 "STATUS": "crew member",
                 "BORN_DATE": "2330-11-05 00:00:00"
+            },
+            "5": {
+                "NAME": "Naomi Nagata",
+                "SPECIALITY": "reparation specialist",
+                "STATUS": "crew member",
+                "BORN_DATE": "2323-12-30 00:00:00"
             }
         },
-        "NEXT_KEY": "5"
+        "NEXT_KEY": "6"
     }
 }

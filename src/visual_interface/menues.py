@@ -120,7 +120,7 @@ def event_creation_menue(calendar: Calendar, inventory: Inventory):
             "2": "no"
         },
         "introduce a number and press [Enter↲] to select one of the options:"
-    ).get_key()
+    ).print_get_key()
 
     if(item_menue_option == "1"):
         item_selection_input = items_selection_menue_bucle(inventory.get_items())
@@ -137,7 +137,7 @@ def event_creation_menue(calendar: Calendar, inventory: Inventory):
             "2": "no"
         },
         "introduce a number and press [Enter↲] to select one of the options:"
-    ).get_key()
+    ).print_get_key()
     if(people_menue_option == "1"):
         people_keys_list = people_selection_menue_bucle(
             inventory.get_people(), 
@@ -159,30 +159,34 @@ def event_creation_menue(calendar: Calendar, inventory: Inventory):
 #! =================================================================================
 
 def items_selection_menue(items: dict[str, item.Item]) -> tuple[str, int]: 
-    
-    print("[ITEM SELECTION MENUE]")
-    console_in_out.print_item_dict(items)
+    while(True):
+        print("[ITEM SELECTION MENUE]")
+        console_in_out.print_item_dict(items)
 
-    menueble_dict_items = SelectionMenue.item_dict_to_menueable_dict(items)
-    select_item_menue = SelectionMenue(
-        "item_selection_menue",
-        menueble_dict_items,
-        "select"
-    )
-    print("introduce a number and press [Enter↲] to select one of the options:")
-    item_key = select_item_menue.get_key()
+        menueble_dict_items = SelectionMenue.item_dict_to_menueable_dict(items)
+        select_item_menue = SelectionMenue(
+            "item_selection_menue",
+            menueble_dict_items,
+            "select"
+        )
+        print("introduce a number and press [Enter↲] to select one of the options:")
+        item_key = select_item_menue.get_key()
+
+        if(item_key != -1):
     
-    available_amount = items[item_key].get_amount()
-    if(available_amount == -1):
-        return (item_key, -1)
+            available_amount = items[item_key].get_amount()
+            if(available_amount == -1):
+                return (item_key, -1)
     
-    selected_amount = console_in_out.input_int_inrange_bucle(
-        "introduce the amount you want to get of the item",
-        available_amount,
-        1
-    )
+            selected_amount = console_in_out.input_int_inrange_bucle(
+                "introduce the amount you want to get of the item",
+                available_amount,
+                1
+            )
     
-    return (item_key, selected_amount)
+            return (item_key, selected_amount)
+        else:
+            print("please introduce a valid option")
     
 def items_selection_menue_bucle(items: dict[str, item.Item]) -> tuple[list[str],list[int]]:
     inputs: list[tuple[str,int]]= []
@@ -212,20 +216,25 @@ def items_selection_menue_bucle(items: dict[str, item.Item]) -> tuple[list[str],
     return output
 
 def people_selection_menue(people: dict[str, human.Human], actualdate: datetime) -> str:
-    print("[PERSONNEL SELECTION MENUE]")
-    console_in_out.print_people_dict(people)
+    while(True):
+        print("[PERSONNEL SELECTION MENUE]")
+        console_in_out.print_people_dict(people, actualdate)
 
-    menueble_dict_people = SelectionMenue.human_dict_to_menueable_dict(people, actualdate)
-    select_human_menue = SelectionMenue(
-        "people_selection_menue",
-        menueble_dict_people,
-        "select"
-    )
-    print("introduce a number and press [Enter↲] to select one of the options:")
-    human_key = select_human_menue.get_key()
+        menueble_dict_people = SelectionMenue.human_dict_to_menueable_dict(people)
+        select_human_menue = SelectionMenue(
+            "people_selection_menue",
+            menueble_dict_people,
+            "select"
+        )
+        print("introduce a number and press [Enter↲] to select one of the options:")
+        human_key = select_human_menue.get_key()
+        if (human_key != -1):
+            return human_key
+        else:
+            print("Pleas introduce a valid option")
 
-    return human_key
 
+    
 def people_selection_menue_bucle(people: dict[str, human.Human], actualdate: datetime) -> list[str]:
     output = []
     
@@ -244,10 +253,8 @@ def people_selection_menue_bucle(people: dict[str, human.Human], actualdate: dat
 
         selection = more_or_exit_menue.print_get_key()
         if(selection == "x"):
-            break
+            return output
     
-    return output
-
     # output_people = people_selection_menue(available_from_inventory.get_people)
 def people_creation_menue(actual_date): #!add actual date pa que la fecha de nacimiento no de bateo
 

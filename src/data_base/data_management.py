@@ -28,7 +28,7 @@ def convert_json_to_objects(data):
     
     
 def default_empty_data():
-    default_places = ["Control Bridge", "Crew Quarters", "Fusion Reactor", "Mining Bay","Cargo Bay", "Laboratory", "Services Room", "Data Center", "Ship Exterior"]
+    default_places = ["Control Bridge", "Crew Quarters", "Nuclear Reactor", "Mining Bay","Cargo Bay", "Laboratory", "Services Room", "Data Center", "Ship Exterior"]
         
     default_starting_date = datetime(2350, 1, 1)
 

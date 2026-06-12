@@ -55,6 +55,7 @@ class SelectionMenue:
         if(not (selected_option in option_keys_list)):
             print("ERROR: option not available, try again:")
             print()
+            return -1
         else:
             return selected_option
         
