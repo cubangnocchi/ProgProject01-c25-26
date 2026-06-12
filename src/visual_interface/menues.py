@@ -87,38 +87,7 @@ def item_creation_menue():
 def event_listing_menue(places: dict[str, list[event.Event]]):
     
     #! ahora toddo esto no work ............................
-    mode_menue = SelectionMenue(
-        "Select how to list the events",
-        {
-            "1": "select from place",
-            "2": "list all",
-            "x": "go back"
-        },
-        "press a [key] + [Enter↲] to select one of the options:"
-    )
-    mode = mode_menue.print_get_key()
-
-    if(mode == "x"):
-        return
-    if(mode == "1"):
-
-        places_names_list = list(places.keys())
-        
-        places_names_list_dict = SelectionMenue.create_numerable_dict_from_list(places_names_list)
-        event_place_menue = SelectionMenue("Select a Place",
-                                           places_names_list_dict,
-                                           "introduce a number and press [Enter↲] to select one of the options:")
-        selected_place = event_place_menue.print_get_option()
-        if(places[selected_place] == [] or places[selected_place] == None):
-            print(f"no events were asigned to the place: {selected_place}")
-            print(" - - - - - - - - - - - - - - - - - -")
-            return
-        
-        console_in_out.print_event_list(places[selected_place])
-        return
-
-    elif(mode == "2"):
-        print("NOT IMPLEMENTED") #!implement it!!!!!!!!!!!!!  
+    print("implement it...")
 
 def event_creation_menue(calendar: Calendar, inventory: Inventory):
 
@@ -144,13 +113,37 @@ def event_creation_menue(calendar: Calendar, inventory: Inventory):
     )
     event_type = event_type_menue.print_get_option()
 
-    item_selection_input = items_selection_menue_bucle(inventory.get_items())
-    item_keys_list = item_selection_input[0]
-    item_amount_list = item_selection_input[1]
+    item_menue_option = SelectionMenue(
+        "Do you want to assign items from the inventory to the event?",
+        {
+            "1": "yes",
+            "2": "no"
+        },
+        "introduce a number and press [Enter↲] to select one of the options:"
+    ).get_key()
 
-    people_keys_list = people_selection_menue_bucle(
-        inventory.get_people(), 
-        calendar.get_actual_date())
+    if(item_menue_option == "1"):
+        item_selection_input = items_selection_menue_bucle(inventory.get_items())
+        item_keys_list = item_selection_input[0]
+        item_amount_list = item_selection_input[1]
+    else:
+        item_keys_list = []
+        item_amount_list = []
+    
+    people_menue_option = SelectionMenue(
+        "Do you want to assign people to the event?",
+        {
+            "1": "yes",
+            "2": "no"
+        },
+        "introduce a number and press [Enter↲] to select one of the options:"
+    ).get_key()
+    if(people_menue_option == "1"):
+        people_keys_list = people_selection_menue_bucle(
+            inventory.get_people(), 
+            calendar.get_actual_date())
+    else:
+        people_keys_list = []
 
     output = (event.Event(event_name,
                           event_time,
@@ -220,7 +213,7 @@ def items_selection_menue_bucle(items: dict[str, item.Item]) -> tuple[list[str],
 
 def people_selection_menue(people: dict[str, human.Human], actualdate: datetime) -> str:
     print("[PERSONNEL SELECTION MENUE]")
-    console_in_out.print_item_dict(people)
+    console_in_out.print_people_dict(people)
 
     menueble_dict_people = SelectionMenue.human_dict_to_menueable_dict(people, actualdate)
     select_human_menue = SelectionMenue(
@@ -246,7 +239,7 @@ def people_selection_menue_bucle(people: dict[str, human.Human], actualdate: dat
     )
     
     while(True):
-        key = people_selection_menue(people)
+        key = people_selection_menue(people, actualdate)
         output.append(key)
 
         selection = more_or_exit_menue.print_get_key()

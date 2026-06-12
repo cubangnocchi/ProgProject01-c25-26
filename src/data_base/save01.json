@@ -54,9 +54,28 @@
                 "ITEM_TYPE": "vacuum protection",
                 "IS_EXPENDABLE": 0,
                 "AMOUNT": 56
+            },
+            "3": {
+                "ITEM_NAME": "nutrient blocks",
+                "ITEM_TYPE": "life suport",
+                "IS_EXPENDABLE": 1,
+                "AMOUNT": 5000
             }
         },
-        "PEOPLE": {},
-        "NEXT_KEY": "2"
+        "PEOPLE": {
+            "2": {
+                "NAME": "Carlo",
+                "SPECIALITY": "software engineer",
+                "STATUS": "crew member",
+                "BORN_DATE": "2325-11-03 00:00:00"
+            },
+            "4": {
+                "NAME": "Cynthi",
+                "SPECIALITY": "mining specialist",
+                "STATUS": "crew member",
+                "BORN_DATE": "2330-11-05 00:00:00"
+            }
+        },
+        "NEXT_KEY": "5"
     }
 }

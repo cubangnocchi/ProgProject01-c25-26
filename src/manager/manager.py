@@ -23,6 +23,9 @@ def run():
 
     main_bucle()
 
+    save_data()
+
+def save_data():
     save = data_management.convert_objects_to_json(main_calendar, main_inventory)
     data_management.save_data(FILEPATH, save)
 
@@ -51,16 +54,19 @@ def main_bucle():
         
 def add_item():
     main_inventory.add_item(menues.item_creation_menue())
+    save_data()
 
 def add_event():
     event_data = menues.event_creation_menue(main_calendar, 
                                              main_inventory)
 
     main_calendar.insert_event_in_place(event_data)
+    save_data()
 
 def add_crew_member():
     main_inventory.add_human(menues.people_creation_menue(main_calendar.get_actual_date()))
-
+    save_data()
+    
 def list_events():
     menues.event_listing_menue(main_calendar.get_places_with_events())
     #aquí agregas opciones para modificar cosas

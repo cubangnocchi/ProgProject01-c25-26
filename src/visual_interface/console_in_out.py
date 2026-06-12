@@ -97,7 +97,7 @@ def print_item_dict(event_dict: dict[str, Item]):
         print("")
 
 def print_people_dict(people_dict: dict[str, Human], actual_date: datetime):
-
+    
     key_list = list(people_dict.keys())
 
     for key in key_list:

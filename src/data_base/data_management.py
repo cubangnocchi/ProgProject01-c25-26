@@ -19,7 +19,7 @@ def load_data(FILEPATH):
 
 def convert_json_to_objects(data):
     if data == {}:
-        return defoult_empty_data()
+        return default_empty_data()
         
     output = (Calendar.convert_dictionary_to_calendar(data["CALENDAR"]),
               Inventory.convert_dict_to_inventory(data["INVENTORY"]))
@@ -27,14 +27,14 @@ def convert_json_to_objects(data):
     return output
     
     
-def defoult_empty_data():
-    defoult_places = ["Control Bridge", "Crew Quarters", "Fusion Reactor", "Mining Bay","Cargo Bay", "Laboratory", "Services Room", "Data Center", "Ship Exterior"]
+def default_empty_data():
+    default_places = ["Control Bridge", "Crew Quarters", "Fusion Reactor", "Mining Bay","Cargo Bay", "Laboratory", "Services Room", "Data Center", "Ship Exterior"]
         
-    defoult_starting_date = datetime(2350, 1, 1)
+    default_starting_date = datetime(2350, 1, 1)
 
-    empty_calendar = Calendar([], defoult_starting_date)
+    empty_calendar = Calendar([], default_starting_date)
 
-    empty_inventory = Inventory(defoult_places, {}, {}, 0)
+    empty_inventory = Inventory(default_places, {}, {}, 0)
 
     output = (empty_calendar, empty_inventory)
 

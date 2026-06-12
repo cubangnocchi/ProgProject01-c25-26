@@ -86,7 +86,7 @@ class Event:
         end_date = datetime.datetime.strptime(event_as_dictionary["DATE_END"], '%Y-%m-%d %H:%M:%S')
         the_interval = interval(start_date, 
                                 end_date)
-
+        
         output = Event(event_as_dictionary["NAME"],
                        the_interval,
                        event_as_dictionary["PEOPLE_KEYS"],
