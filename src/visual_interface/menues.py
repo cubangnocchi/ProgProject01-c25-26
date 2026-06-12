@@ -148,9 +148,13 @@ def event_creation_menue(calendar: Calendar, inventory: Inventory):
     item_keys_list = item_selection_input[0]
     item_amount_list = item_selection_input[1]
 
+    people_keys_list = people_selection_menue_bucle(
+        inventory.get_people(), 
+        calendar.get_actual_date())
+
     output = (event.Event(event_name,
                           event_time,
-                          [], 
+                          people_keys_list, 
                           item_keys_list, 
                           item_amount_list, #!revsa lo de convertir en el json que no eso eh?
                           event_type,
