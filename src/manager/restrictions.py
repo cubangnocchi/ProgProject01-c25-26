@@ -39,12 +39,15 @@ def resources_n_crew_concistency(event: Event, calendar: Calendar, inventory: In
     
     return error_list
 
+# called from check_event, checks dependencies and exclusion restrictions
+# related to the place of the event
 def place_related_restrictions(event: Event, inventory: Inventory):
     #output
     error_list = []
     
     return error_list
 
+# called from check_event, 
 def dynamic_restrictions(event: Event, inventory: Inventory):
     #output
     error_list = []
