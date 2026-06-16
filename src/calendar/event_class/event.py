@@ -1,5 +1,8 @@
 import datetime
 from src.calendar.event_class.interval import interval
+from src.inventory.inventory import Inventory
+from src.inventory.item import Item
+from src.inventory.human import Human
 
 #! + + + + + + add item creation as a posible parameter + + + + + 
 
@@ -64,6 +67,22 @@ class Event:
     
     def get_people_keys(self):
         return self.people_keys
+    
+    def get_type(self):
+        return self.event_type
+    
+    def get_items_list(self, inventory: Inventory):
+        output = []
+        for key in self.item_keys:
+            output.append(inventory.get_item(key))
+
+        return output
+    
+    def get_people_list(self, inventory: Inventory):
+        output = []
+        for key in self.people_keys:
+            output.append(inventory.get_person(key))
+        return output
     
     # Data format method
 
