@@ -30,7 +30,7 @@ class Human:
 
         return age
     def convert_to_dictionary(self):
-        
+         
         output = {
             "NAME": self.name,
             "SPECIALITY": self.speciality,
