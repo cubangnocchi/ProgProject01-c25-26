@@ -89,6 +89,30 @@ def event_listing_menue(event_list: list[event.Event]):
     console_in_out.print_event_list(event_list)
     #agregar lo de ver detalles y editar
 
+def event_error_menue(error_list: list[str]):
+    print(">>> ERROR <<<")
+    if(len(error_list) == 0):
+        print("the event cannot be added because it does not meet the following restriction:")
+        print(error_list[0])
+    else:
+        print("the event cannot be added because it does not meet the following restrictions:")
+        for error in error_list:
+            print(error)
+    
+    #menú para escoger volver a crear evento, editar evento, o salir
+    option = SelectionMenue(
+        "What do you want to do with the event?",
+        {
+            "0": "delete and go back to main menue",
+            "1": "delete and create a new event from scratch",
+            "2": "edit the event"
+        },
+        "press a [key] + [Enter↲] to select one of the options:"
+    ).print_get_key()
+
+    return option
+    
+
 def event_creation_menue(calendar: Calendar, inventory: Inventory):
 
     print("")
@@ -256,7 +280,7 @@ def people_selection_menue_bucle(people: dict[str, human.Human], actualdate: dat
             return output
     
     # output_people = people_selection_menue(available_from_inventory.get_people)
-def people_creation_menue(actual_date): #!add actual date pa que la fecha de nacimiento no de bateo
+def people_creation_menue(actual_date): 
 
     print("New crew memeber aboard e7")
     print("pleace introduce his/her/something name")

@@ -4,7 +4,7 @@ from src.calendar.event_class.interval import interval
 from src.inventory.inventory import Inventory
 from src.inventory.human import Human
 from src.inventory.item import Item
-#from . import restrictions
+from src.manager import restrictions
 from src.visual_interface import menues
 from src.visual_interface import console_in_out as io
 from src.data_base import data_management
@@ -57,11 +57,28 @@ def add_item():
     save_data()
 
 def add_event():
-    event_data = menues.event_creation_menue(main_calendar, 
+    new_event = menues.event_creation_menue(main_calendar, 
                                              main_inventory)
+    
+    error_list = restrictions.check_event(
+        new_event,
+        main_calendar,
+        main_inventory)
+    
+    if(error_list == []):    
+        main_calendar.insert_event_in_place(new_event)
+        save_data()
+    else:
+        
+        error_option = menues.event_error_menue(error_list)
+        #if error_option == 0 just go back to main menue...
+        if(error_option == "1"):
+            add_event()
+        elif(error_option == "2"):
+            print ("event editing is not implemented")
 
-    main_calendar.insert_event_in_place(event_data)
-    save_data()
+
+
 
 def add_crew_member():
     main_inventory.add_human(menues.people_creation_menue(main_calendar.get_actual_date()))
