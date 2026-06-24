@@ -110,7 +110,7 @@ def event_error_menue(error_list: list[str]):
         "press a [key] + [Enter↲] to select one of the options:"
     ).print_get_key()
 
-    return option
+    return int(option)
     
 
 def event_creation_menue(calendar: Calendar, inventory: Inventory):

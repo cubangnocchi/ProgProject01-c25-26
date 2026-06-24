@@ -72,9 +72,9 @@ def add_event():
         
         error_option = menues.event_error_menue(error_list)
         #if error_option == 0 just go back to main menue...
-        if(error_option == "1"):
+        if(error_option == 1):
             add_event()
-        elif(error_option == "2"):
+        elif(error_option == 2):
             print ("event editing is not implemented")
 
 

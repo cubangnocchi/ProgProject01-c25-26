@@ -348,11 +348,95 @@ exclusion_place_name = {
     }
 }
 
-dependencies_item_type = {}
+dependencies_item_type = {
+    "item_type":{
+        "life suport":[],
+        "medic":[],
+        "tool":[],
+        "bio-hazard":[
+            "bio-hazard protection"
+        ],
+        "radio-hazard":[
+            "radio-hazard protection"
+        ],
+        "chemical hazard":[
+            "chemical hazard protection"
+        ],
+        "bio-hazard protection":[],
+        "radio-hazard protection":[],
+        "chemical hazard protection":[],
+        "vacuum protection":[],
+        "weapon":[],
+        "cargo":[],
+        "none":[]
+    },
+    "specialist":
+    {
+        "life suport":[],
+        "medic":[
+            "medic"
+        ],
+        "tool":[],
+        "bio-hazard":[],
+        "radio-hazard":[],
+        "chemical hazard":[],
+        "bio-hazard protection":[],
+        "radio-hazard protection":[],
+        "chemical hazard protection":[],
+        "vacuum protection":[],
+        "weapon":[],
+        "cargo":[],
+        "none":[]        
+    },
+    "status": {
+        #!-----------------------------
+    }        
+}
 
-exclusion_item_type = {}
+exclusion_item_type = {
+    "item_type":{
+        "life suport":[
+            "bio-hazard",
+            "radio-hazard",
+            "chemical hazard"
+        ],
+        "medic":[],
+        "tool":[],
+        "bio-hazard":[],
+        "radio-hazard":[],
+        "chemical hazard":[],
+        "bio-hazard protection":[],
+        "radio-hazard protection":[],
+        "chemical hazard protection":[],
+        "vacuum protection":[],
+        "weapon":[],
+        "cargo":[],
+        "none":[]
+    },
+    "specialist":
+    {
+        "life suport":[],
+        "medic":[],
+        "tool":[],
+        "bio-hazard":[],
+        "radio-hazard":[],
+        "chemical hazard":[],
+        "bio-hazard protection":[],
+        "radio-hazard protection":[],
+        "chemical hazard protection":[],
+        "vacuum protection":[],
+        "weapon":[],
+        "cargo":[],
+        "none":[]        
+    },
+    "status": {
+        #!-----------------------------
+    } 
+}
+
 # example, if there are space suits, the amount of space suits 
 # most be >= to the amount of people
 dependencies_amount_of_people = {
+    
 
 }

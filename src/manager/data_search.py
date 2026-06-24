@@ -20,3 +20,13 @@ def is_specialist_in_people_list(speciality: str, people_list: list[Human]):
             return True
         
     return False
+
+def is_status_in_people_list(status: str, people_list: list[Human]):
+
+    for human in people_list:
+        if(human.get_status() == status):
+            return True
+        
+    return False
+
+
