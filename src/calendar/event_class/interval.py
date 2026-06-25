@@ -28,10 +28,10 @@ class interval:
         dates_two = interval_two.get_dates()
         
         #if dates_one is behind dates two it means that it is not overlaping
-        if(dates_one[0] <= dates_two[0] and dates_one[1] <= dates_two[0]):
+        if(dates_one[1] <= dates_two[0]):
             return False
         #the same but inverted...
-        if(dates_two[0] <= dates_one[0] and dates_two[1] <= dates_one[0]):
+        if(dates_two[1] <= dates_one[0]):
             return False
         
         return True
