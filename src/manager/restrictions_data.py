@@ -430,7 +430,19 @@ exclusion_item_type = {
         "none":[]        
     },
     "status": {
-        #!-----------------------------
+        "life suport":[],
+        "medic":[],
+        "tool":[],
+        "bio-hazard":[],
+        "radio-hazard":[],
+        "chemical hazard":[],
+        "bio-hazard protection":[],
+        "radio-hazard protection":[],
+        "chemical hazard protection":[],
+        "vacuum protection":[],
+        "weapon":[],
+        "cargo":[],
+        "none":[]  
     } 
 }
 

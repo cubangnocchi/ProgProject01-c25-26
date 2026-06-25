@@ -33,15 +33,48 @@ def dependency_check(event: Event, inventory: Inventory):
     #importing event_type related restrictions
     dep_event_type = restrictions_data.dependencies_event_type
 
-    dep_event_type_itemtype_list = dep_event_type["item_type"][event_type]
-    
+    #dependency event_type - item_type
+    dep_event_type_itemtype_list = dep_event_type["item_type"][event_type]    
     
     for item_type in dep_event_type_itemtype_list:
         if not(data_search.is_item_type_in_item_list(item_type, event_items)):
             error_str = ("an event of the type ¨"+ event_type + "¨ needs an item of the type ¨" + item_type + "¨")
             error_list.append(error_str)
+    
+    #dependency event_type - specialist
+    dep_event_type_specialist_list = dep_event_type["specialist"][event_type]
+    
+    for speciality in dep_event_type_specialist_list:
+        if not(data_search.is_specialist_in_people_list(speciality, event_people)):
+            error_str = ("an event of the type ¨"+ event_type + "¨ needs a person specialized in ¨" + speciality + "¨")
+            error_list.append(error_str)
 
+    #dependency event_type - status
+    dep_event_type_status_list = dep_event_type["status"][event_type]
+
+    for status in dep_event_type_status_list:
+        if not(data_search.is_status_in_people_list(status, event_people)):
+            error_str = ("an event of the type ¨"+ event_type + "¨ needs an person specialized in ¨" + status + "¨")
+            error_list.append(error_str)
     return error_list
+
+    # ---------------- EVENT PLACE SECTION --------------
+    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
 
 # called from check_event, cheks exclusion criteria between event type, item types and crew specialities and status
 def exclusion_check(event: Event, inventory: Inventory):
