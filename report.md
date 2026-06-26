@@ -1,0 +1,79 @@
+# Gestor de Eventos para Naves Mineras 
+Inspirado en el universo de ciencia ficción de The Expanse, el proyecto tiene lugar en una nave minera de hielo y, como la radiación del espacio se lleva mal con la microelectrónica, he diseñado una sencilla aplicación de consola que permita la gestión consistente de eventos e inventario que se pueda ejecutar en ordenadores de hardware "antiguo y robusto".
+
+El proyecto es una aplicación de consola que consiste en un gestor de eventos donde cuentas con un calendario, un inventario de objetos, un listado de personas y un conjunto de ubicaciones a manejar. La función principal es poder crear eventos sin que estos generen contradicciones con el inventario, listado de personas, ubicación, tipo de evento, eventos ya existentes y un listado de reglas específicas, todo ello representado en un conjunto de restricciones que se han de cumplir para poder guardar un nuevo evento en el calendario. Ésta y el resto de funciones se explican más a fondo en la sección 
+
+## Lista de contenidos
+- [Introducción](#gestor-de-eventos-para-naves-mineras)
+- [Instrucciones de ejecución](#instrucciones-de-ejecución)
+- [Instrucciones de uso](#instrucciones-de-uso)
+  - [Ejemplo de uso](#ejemplo-de-uso)
+- [Diseño del proyecto](#diseño-del-proyrcto)
+  - [Estructura del proyecto](#estructura-del-proyecto)
+  - [Flujo de ejecución](#flujo-de-ejecución)
+  - [Historia y experiencie](#historia-y-experiencia)
+
+
+## Instrucciones de ejecución
+
+1. Clone el [repositorio](https://github.com/cubangnocchi/ProgProject01-c25-26) usando **git bash**
+    ```bash
+       git clone https://github.com/cubangnocchi/ProgProject01-c25-26.git
+    ```
+2. Abra el directorio del proyecto en su consola. 
+   
+3. Ejecute el comando
+    ```bash
+    python main.py
+    ``` 
+
+###### ℹ️ debe tener instalado python 3.13.7
+
+##### [↩ volver a lista de contenidos](#lista-de-contenidos)
+
+## Instrucciones de uso
+
+Una ves abierto el programa en su consola deberá abrirse un menú. Ahí se listaran las opciones y se le intruirá cómo accionarlas. A continuación un ejemplo de lo que debe esperar:
+```
+---[MAIN MENUE]---
+[1] - list events
+[2] - list items
+[3] - list crew
+[4] - add item to inventoory
+[5] - create event
+[6] - add crew member
+[x] - exit
+press a [key] + [Enter↲] to select one of the options:
+```
+
+##### [↩ volver a lista de contenidos](#lista-de-contenidos)
+
+### Ejemplo de uso
+
+texto
+
+##### [↩ volver a lista de contenidos](#lista-de-contenidos)
+
+## Diseño del proyrcto
+
+texto
+
+##### [↩ volver a lista de contenidos](#lista-de-contenidos)
+
+### Estructura del proyecto
+
+texto
+
+##### [↩ volver a lista de contenidos](#lista-de-contenidos)
+
+### Flujo de ejecución
+
+texto
+
+##### [↩ volver a lista de contenidos](#lista-de-contenidos)
+
+### Historia y experiencia
+
+texto
+
+##### [↩ volver a lista de contenidos](#lista-de-contenidos)
