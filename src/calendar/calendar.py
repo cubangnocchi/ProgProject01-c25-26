@@ -78,8 +78,9 @@ class Calendar:
 
     @staticmethod
     def event_binary_insert(event_list: list[Event], to_insert: Event):
-
-        if(event_list == []): #in case it is empty
+        
+        #if it is empty...
+        if(event_list == []): 
             return [to_insert]
     
         if(to_insert in event_list):

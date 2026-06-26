@@ -48,15 +48,15 @@ class interval:
     @staticmethod
     def distance(interval_first, interval_second):
 
-        first_end_date = interval_first.get_dates[1]
-        second_start_date = interval_first.get_dates[0]
+        first_end_date = interval_first.get_dates()[1]
+        second_start_date = interval_first.get_dates()[0]
 
         return second_start_date - first_end_date 
 
     @staticmethod
     def available_period(interval_first, interval_second):
         
-        return interval_first.get_dates[1], interval_second.get_dates
+        return interval_first.get_dates[1](), interval_second.get_dates()[0]
         
     
 

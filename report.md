@@ -62,7 +62,13 @@ texto
 
 ### Estructura del proyecto
 
-texto
+[src/ ](./src/) En esta carpeta se encuentra el código principal del proyecto que está dividido en las siguientes secciones:
+
+- [calendar/](./src/calendar/) en esta sección se encuentra todo lo relativo al calendario:
+  - [event/](./src/calendar/event_class/)
+    - [event.py](./src/calendar/event_class/event.py) clase Event. Una instancia guarda un nombre, un intervalo de fechas, la listas de las llaves de la base de datos que corresponden a las personas y recursos asignados, una lista que representa las cantidades de los objetos asignados, el tipo de evento y el lugar en que tiene lugar. Cuennta con los métodos necesarios para [convertir al formato JSON](./src/calendar/event_class/event.py#89) y para [convertir de vuelta a una instancia de la clase](./src/calendar/event_class/event.py#104).
+    - [interval.py](./src/calendar/event_class/interval.py) clase Interval. Una instancia consta de dos fechas en formato *datetime*, representando inicio y fin de un periodo de tiempo. Su función prinsipal es contener métodos que faciliten el manejo de fechas como conocer si [dos intervalos se solapan](./src/calendar/event_class/interval.py#24).
+  - [calendar.py](./src/calendar/calendar.py) clase Calendar. Una instancia consta de una lista ordenada de eventos y una *fecha actual* de referencia.
 
 ##### [↩ volver a lista de contenidos](#lista-de-contenidos)
 
