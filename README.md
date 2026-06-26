@@ -1,7 +1,7 @@
 # Gestor de Eventos para Naves Mineras 
 Inspirado en el universo de ciencia ficción de The Expanse, el proyecto tiene lugar en una nave minera de hielo y, como la radiación del espacio se lleva mal con la microelectrónica, he diseñado una sencilla aplicación de consola que permita la gestión consistente de eventos e inventario que se pueda ejecutar en ordenadores de hardware "antiguo y robusto".
 
-El proyecto es una aplicación de consola que consiste en un gestor de eventos donde cuentas con un calendario, un inventario de objetos, un listado de personas y un conjunto de ubicaciones a manejar. La función principal es poder crear eventos sin que estos generen contradicciones con el inventario, listado de personas, ubicación, tipo de evento, eventos ya existentes y un listado de reglas específicas, todo ello representado en un conjunto de restricciones que se han de cumplir para poder guardar un nuevo evento en el calendario. Ésta y el resto de funciones se explican más a fondo en la sección 
+El proyecto es una aplicación de consola que consiste en un gestor de eventos donde cuentas con un calendario, un inventario de objetos, un listado de personas y un conjunto de ubicaciones a manejar. La función principal es poder crear eventos sin que estos generen contradicciones con el inventario, listado de personas, ubicación, tipo de evento, eventos ya existentes y un listado de reglas específicas, todo ello representado en un conjunto de restricciones que se han de cumplir para poder guardar un nuevo evento en el calendario. Ésta y el resto de funciones se explican más a fondo en la sección [Diseño del proyecto](#diseño-del-proyrcto)
 
 ## Lista de contenidos
 - [Introducción](#gestor-de-eventos-para-naves-mineras)
