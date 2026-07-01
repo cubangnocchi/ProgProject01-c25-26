@@ -101,6 +101,6 @@ def print_people_dict(people_dict: dict[str, Human], actual_date: datetime):
         human_i = people_dict[key]
         print(f"{key} - name: {human_i.get_name()}")
         print(f" |- age: {human_i.get_age(actual_date)}")
-        print(f" |- speciality: {human_i.get_speciality}")
-        print(f" |- status: {human_i.get_status}")
+        print(f" |- speciality: {human_i.get_speciality()}")
+        print(f" |- status: {human_i.get_status()}")
         print("")
