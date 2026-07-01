@@ -54,7 +54,7 @@ def dependency_check(event: Event, inventory: Inventory):
 
     for status in dep_event_type_status_list:
         if not(data_search.is_status_in_people_list(status, event_people)):
-            error_str = ("an event of the type ¨"+ event_type + "¨ needs an person specialized in ¨" + status + "¨")
+            error_str = ("an event of the type ¨"+ event_type + "¨ needs an person with the status ¨" + status + "¨")
             error_list.append(error_str)
     return error_list
 
