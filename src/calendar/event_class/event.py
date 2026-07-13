@@ -71,6 +71,9 @@ class Event:
     def get_type(self):
         return self.event_type
     
+    def get_place(self):
+        return self.event_place
+    
     def get_items_list(self, inventory: Inventory):
         output = []
         for key in self.item_keys:

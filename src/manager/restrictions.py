@@ -28,6 +28,7 @@ def dependency_check(event: Event, inventory: Inventory):
     event_items = event.get_items_list(inventory)
     event_people = event.get_people_list(inventory)
     event_type = event.get_type()
+    event_place = event.get_place()
     
     # ---------------- EVENT TYPE SECTION --------------
     #importing event_type related restrictions
@@ -54,19 +55,37 @@ def dependency_check(event: Event, inventory: Inventory):
 
     for status in dep_event_type_status_list:
         if not(data_search.is_status_in_people_list(status, event_people)):
-            error_str = ("an event of the type ¨"+ event_type + "¨ needs an person with the status ¨" + status + "¨")
+            error_str = ("an event of the type ¨"+ event_type + "¨ needs a person with the status ¨" + status + "¨")
             error_list.append(error_str)
-    return error_list
+    
 
     # ---------------- EVENT PLACE SECTION --------------
-    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    # importing event_place related restrictions
+    dep_event_place = restrictions_data.dependencies_place_name
+
+    # dependency event_place - item_type
+    dep_event_place_itemtype_list = dep_event_place["item_type"][event_place]
+    
+    for item_type in dep_event_place_itemtype_list:
+        if not(data_search.is_item_type_in_item_list(item_type, event_items)):
+            error_str = ("an event in the place ¨"+ event_place +"¨ needs an item of the type ¨" + item_type +"¨")
+            error_list.append(error_str)
+
+    # dependency event_place - specialist
+    dep_event_place_specialist_list = dep_event_place["specialist"][event_place]
+
+    for speciality in dep_event_place_specialist_list:
+        if not(data_search.is_specialist_in_people_list(speciality, event_people)):
+            error_str = ("an event in the place ¨"+ event_place +"¨ needs a person specialized in ¨"+ speciality +"¨")
+            error_list.append(error_str)
+
+    # dependency event_place - status
+    dep_event_place_status_list = dep_event_place["status"][event_place]
+
+    for status in dep_event_place_status_list:
+        if not(data_search.is_status_in_people_list(status, event_people)):
+            error_str = ("an event in the place ¨"+ event_place +"¨ needs a person with the status ¨"+ status +"¨")
+            
     #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -75,6 +94,7 @@ def dependency_check(event: Event, inventory: Inventory):
     #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     
+    return error_list
 
 # called from check_event, cheks exclusion criteria between event type, item types and crew specialities and status
 def exclusion_check(event: Event, inventory: Inventory):
