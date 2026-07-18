@@ -29,4 +29,22 @@ def is_status_in_people_list(status: str, people_list: list[Human]):
         
     return False
 
+def itemtype_list_from_item_list(item_list: list[Item]):
 
+    itemtype_list = []
+    for item in item_list:
+        itemtype = item.get_type()
+        if not(string_in_str_list(itemtype, itemtype_list)):
+            itemtype_list.append(itemtype)
+
+    return itemtype_list
+
+# GENERIC
+
+def string_in_str_list(string: str, string_list: list[str]):
+
+    for element in string_list:
+        if element == string:
+            return True
+    
+    return False

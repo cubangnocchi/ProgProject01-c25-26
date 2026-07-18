@@ -29,6 +29,8 @@ def dependency_check(event: Event, inventory: Inventory):
     event_people = event.get_people_list(inventory)
     event_type = event.get_type()
     event_place = event.get_place()
+    event_itemtype_list = data_search.itemtype_list_from_item_list(event_items)
+
     
     # ---------------- EVENT TYPE SECTION --------------
     #importing event_type related restrictions
@@ -85,6 +87,22 @@ def dependency_check(event: Event, inventory: Inventory):
     for status in dep_event_place_status_list:
         if not(data_search.is_status_in_people_list(status, event_people)):
             error_str = ("an event in the place ¨"+ event_place +"¨ needs a person with the status ¨"+ status +"¨")
+            error_list.append(error_str)
+
+    # ---------------- ITEM TYPE SECTION --------------
+    # importing item_type related restrictions
+    dep_itemtype = restrictions_data.dependencies_item_type
+
+    # dependency itemtype - itemtype
+    dep_itemtype_itemtype = dep_itemtype["item_type"]
+    for event_itemtype in event_itemtype_list:
+        for dep_itemtype in dep_itemtype_itemtype[event_itemtype]:
+            if not(data_search.string_in_str_list(dep_itemtype, event_itemtype_list)):
+                error_str = ("an event with an item of the type ¨"+ event_itemtype +"¨ needs an item of the type ¨"+ dep_itemtype +"¨")
+                error_list.append(error_str)
+
+    # dependency itemtype - specialist
+    dep_itemtype_specialist = dep_itemtype["specialist"]
             
     #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     #! te quedaste por aquí ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
